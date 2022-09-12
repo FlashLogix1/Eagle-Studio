@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Lemon Milk';
+    src: url('../assets/LemonMilkRegular-X3XE2.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Arca Majora 3 Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Arca Majora 3 Bold'), url('../assets/ArcaMajora3-Bold.woff') format('woff');
+}

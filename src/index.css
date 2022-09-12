@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.editor-class {
+    background: #fff;
+    height: 500px;
+}
+
+.want-to-make-an-app-block {
+    position: relative;
+    padding: 15px 70px;
+    z-index: 2;
+    background-color: #e4e4e4;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 32px;
+    color: #cd586c;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.chevron-heading {
+    position: relative;
+    display: inline-block;
+    padding: 0 28px 0 60px;
+    margin-right: 20px;
+    background-color: #eaeaea;
+    line-height: 46px;
+}
+
+.chevron-heading:after {
+    content: '\00A0';
+    position: absolute;
+    top: 0;
+    right: -20px;
+    width: 20px;
+    height: 100%;
+    background: url(https://www.sellmyapp.com/wp-content/themes/sma-theme/images/earnings-heading-chevron.svg) no-repeat left top / auto auto;
+}
+
+.backgorund-color {
+    font-family: 'Montserrat',sans-serif;
+    background-color: #ebebeb;
+    /*width: 460px*/
+}
+
+.cropContainer {
+position: relative;
+width: 100%;
+height: 200px;
+background: #333;
+}
+
+.step {
+    position: relative;
+    margin: 30px 0;
+    background-color: #f5f5f5;
+    padding: 15px 49px 15px 111px;
+    font-weight: 800;
+    font-size: 26px;
+    line-height: 30px;
+}
+
+.App {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.crop-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 80px;
+}
+
+.step .step-number {
+    position: absolute;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -ms-flex;
+    display: flex;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    width: 62px;
+    height: 100%;
+    background-color: #bf2727;
+    font-family: 'Museo',serif;
+    font-size: 59px;
+    line-height: 1;
+    color: #ffffff;
+}

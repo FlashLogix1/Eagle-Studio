@@ -12,12 +12,13 @@ import {
     Radio,
     Row, Skeleton,
     Tabs,
-    Typography, Grid, Space, Modal, Tag
+    Typography, Grid, Space, Modal, Tag, Select
 } from "antd";
 import {useContext, useEffect, useMemo, useState} from "react";
 import {getData, getDataByID, saveData} from "../actions/common";
 import {handleError} from "../shared/handleError";
 import {useHistory, useParams} from "react-router";
+import Carousel from "react-grid-carousel"
 import {ProductPriceCard} from "../component/ProductPriceCard";
 import {
     AndroidOutlined, AppleOutlined,
@@ -36,6 +37,7 @@ import {openNotificationWithIcon} from "../shared/notification";
 import {APIContext} from "../context/context";
 import apiClient from "../shared/apiClient";
 import ReactStars from "react-rating-stars-component/dist/react-stars";
+import '../../src/CustomStyles.css';
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 const floatRightStyle = {
@@ -59,6 +61,7 @@ export const ProductDetail = () => {
     const history = useHistory()
     const [form] = Form.useForm()
     let user = true
+    
 
     useEffect(() => {
         if(error)
@@ -148,31 +151,116 @@ export const ProductDetail = () => {
         }
     }
 
-    return (<div>
+    return (<div className="ralewayCustomStyle">
         <Skeleton active loading={loading}>
-        <Typography.Title type="secondary" level={2}>{product?.title}</Typography.Title>
-        <Row gutter={[10,10]}>
+            {/* L.H.S content */}
+        <div className="barProductCustomStyle">
+            <Row gutter={[130,130]}>
+                <Col lg={4} >
+                    <img src="/p1.png" width="80" height="80" alt="image1" id="topImage" />
+                </Col>
+                <Col lg={16}>
+                    <h2>Mission Possible | Action</h2>
+                    <h6>TOP TRENDING GAME</h6>
+                </Col>
+            </Row>
+        </div>
+        {/* <Typography.Title type="secondary" level={2}>{product?.title}</Typography.Title> */}
+        <Space>
+            
+        </Space>
+        <Row gutter={[10,10]} style={{marginTop: "-70px", paddingLeft: "28px"}}>
             <Col xl={16} lg={16} md={24} sm={24} xs={24}>
-                <Image preview={false} width={"100%"} height={236} src={product?.featured_image?.url} />
-                <Row gutter={[10, 10]}>
+                {/* <Image preview={false} width={"100%"} height={236} src={product?.featured_image?.url} /> */}
+                {/* <Row gutter={[10, 10]}>
                     {product && product?.screenshots?.map(v => (<Col style={{margin: '10px 0px'}}><Image width={120} height={94} src={v.url} /></Col>))}
-                </Row>
+                </Row> */}
 
-                <Space>
+                {/* <Space>
                     {product && product.youtube_link && <RenderButtons type="primary" url={product.youtube_link} text="Youtube" icon={<YoutubeOutlined />} />}
 
                     {product && product.google_play_link && <RenderButtons url={product.google_play_link} icon={<AndroidOutlined />} text="Android" />}
 
                     {product && product.app_store_link && <RenderButtons url={product.app_store_link} text="iOS" icon={<AppleOutlined />} />}
                     <Button onClick={addWishlist} icon={<HeartTwoTone twoToneColor="#eb2f96" />} type="primary">{screens.xs ? '' : 'Add to wishlist'}</Button>
-                </Space>
+                </Space> */}
+                
                 <Tabs defaultActiveKey="1" style={{marginTop: 20}}>
-                    <Tabs.TabPane tab="Description" key="1">
-                        <div dangerouslySetInnerHTML={{__html: product?.description}}/>
+                    <Tabs.TabPane tab="Item" key="1">
+                        {/* <div dangerouslySetInnerHTML={{__html: product?.description}}/> */}
+                        <div style={{marginTop: "15px"}}>
+                            <Row>
+                                <img src="/p2.png" alt="image2" className="card-img-top" />
+                            </Row>
+                            <Row className="card-footer centerCustomStyle">
+                                <div className="centerCustomStyle">
+                                    <a className="btn btn-success mr-2 rounded btn-view">Live Demo</a>
+                                    <a className="btn btn-success mr-2 rounded btn-view">4 Likes</a>
+                                    <a className="btn btn-success mr-2 rounded btn-view">Add to wishlist</a>
+                                </div>    
+                            </Row>
+                            <Row style={{marginTop: "20px"}}>
+                                <Card title="Screenshots" extra={<img src="/g1.png" height="45px" alt="image3" />}>
+                                    <Carousel cols={4} rows={1} gap={10} loop showDots>
+                                        <Carousel.Item>
+                                            <img src="/c1.jpg" alt="CarouselImage1" className="screenshot-thumb" />
+                                        </Carousel.Item>
+                                        <Carousel.Item>
+                                            <img src="/c1.jpg" alt="CarouselImage1" className="screenshot-thumb" />
+                                        </Carousel.Item>
+                                        <Carousel.Item>
+                                            <img src="/c1.jpg" alt="CarouselImage1" className="screenshot-thumb" />
+                                        </Carousel.Item>
+                                        <Carousel.Item>
+                                            <img src="/c1.jpg" alt="CarouselImage1" className="screenshot-thumb" />
+                                        </Carousel.Item>
+                                        <Carousel.Item>
+                                            <img src="/c1.jpg" alt="CarouselImage1" className="screenshot-thumb" />
+                                        </Carousel.Item>
+                                        <Carousel.Item>
+                                            <img src="/c1.jpg" alt="CarouselImage1" className="screenshot-thumb" />
+                                        </Carousel.Item>
+                                        </Carousel>
+                                </Card>
+                            </Row>
+                            <Row style={{marginTop: "20px"}}>
+                                <Card title="Item Description" extra={<Space></Space>}>
+                                    <h3>Description</h3>
+                                    <p style={{fontSize: "16px"}}>A casual puzzle in which you have to fall safely. It is deceptively simple, yet profoundly deep. Play through the extensive stages, sharpening your wits as you have fun.</p>
+                                    <p style={{wordBreak: "break-all", fontSize: "14px"}}><strong>Download apk : https://drive.google.com/file/d/1kx2W-u-HNEBnR5ulXqQ5OzYHImbtF37M/view?usp=sharing</strong></p>
+                                </Card>
+                            </Row>
+                            <Row style={{marginTop: "20px"}}>
+                                <Card title="Features" extra={<Space></Space>} style={{width: "712px"}}>
+                                    <h3>Features</h3>
+                                    <div className="userDescriptionCustomStyle">
+                                        <ul>
+                                            <li><strong>Made with unity 2020</strong></li>
+                                            <li><strong>50</strong> Levels</li>
+                                            <li>Easy to reskin</li>
+                                            <li><strong>Easy Level Maker</strong></li>
+                                            <li>Admob banner and interstitial ads</li>
+                                            <li>Splash screen</li>
+                                            <li>Ready to publish</li>
+                                        </ul>
+                                        <h4 className="heading4CustomStyle">What's inside package?</h4>
+                                    </div>
+                                    <div className="userDescriptionCustomStyle">
+                                        <ul>
+                                            <li><strong>Complete unity 2020 source code</strong></li>
+                                            <li>Screenshots , Icon and banner png</li>
+                                            <li>Easy to reskin</li>
+                                            <li>Figma file (contains all the store graphics)</li>
+                                            <li>Documentation</li>
+                                        </ul>
+                                    </div>
+                                </Card>
+                            </Row>
+                        </div>
                     </Tabs.TabPane>
-                    <Tabs.TabPane tab="Feature" key="4">
+                    {/* <Tabs.TabPane tab="Feature" key="4">
                         <div dangerouslySetInnerHTML={{__html: product?.features}} />
-                    </Tabs.TabPane>
+                    </Tabs.TabPane> */}
                     <Tabs.TabPane tab={<Badge offset={[10, null]} count={product && product?.product_rating?.length}>Reviews</Badge>} key="2">
                         <Row gutter={[10,10]}>
                         {product?.product_rating?.map(v =>  <Col><Card size="small" title={<ReactStars
@@ -191,6 +279,10 @@ export const ProductDetail = () => {
                         </Row>
                     </Tabs.TabPane>
                     {/*<Badge count={1}>*/}
+                    <Tabs.TabPane tab="Support" key="4">
+                        <div dangerouslySetInnerHTML={{__html: product?.features}} />
+                    </Tabs.TabPane>
+
                     <Tabs.TabPane tab={<Badge offset={[10, null]} count={comments && comments?.length}>Comments</Badge>} key="3">
                         {comments?.length > 0 &&
                             <List
@@ -218,8 +310,10 @@ export const ProductDetail = () => {
                         </Skeleton>}
                     </Tabs.TabPane>
                 </Tabs>
+                
             </Col>
-            <Col xl={8} lg={8} md={24} sm={24} xs={24}>
+            {/* R.H.S sidebar */}
+            <Col xl={8} lg={8} md={24} sm={24} xs={24} style={{marginTop: "100px", paddingRight: "28px", paddingLeft: "10px"}}>
                 <Spin indicator={antIcon} spinning={loadingCart}>
                 <Form onFinish={addToCard} form={form}>
                     <Card bordered={true} style={{ marginLeft: '10px' }}>
@@ -238,6 +332,8 @@ const Title = ({product, id}) => {
     const [value, setValue] = useState(product?.single_app_license)
     const [license, setLicense] = useState()
     const handleChange = (e) => setValue(e.target.value.split('-')[1])
+    const { Option } = Select;
+    const provinceData = ['Single License', 'Multiple License'];
 
     const getLicenses = () => {
         apiClient(`/license`).then(r => setLicense(r.data.data)).catch(e => openNotificationWithIcon("error", handleError(e)))
@@ -258,29 +354,89 @@ const Title = ({product, id}) => {
     }
 
     return(<div>
-        <Form.Item name="price" rules={[{ required: true, message: 'Please select any one!' }]}>
+        <div className="selectCustomStyle">
+            <Select
+            defaultValue={provinceData[0]}
+            style={{
+            width: 180,
+            }}
+        >
+            {provinceData.map((province) => (
+            <Option key={province} style={{fontFamily: "Raleway"}}>{province}</Option>
+            ))}
+        </Select>
+        <span className="spanCustomStyle">$27</span>
+        </div>
+
+        <div>
+            <ul style={{listStyle: "none"}}>
+                <li>We offer support</li>
+                <li>Future item updates</li>
+                <li>100% Satisfaction guarantee</li>
+                <li>Download code immediately after purchase</li>
+            </ul>
+            <button className="btn btn-success mr-2 rounded btn-view" style={{width: "264px", padding: "8px", fontSize: "20px", fontFamily: "Raleway"}}>Buy Now</button>
+            <div style={{backgroundColor: "#f5f5f5"}}>
+                coinbase
+            </div>
+        </div>
+
+        <Card title="Information" style={{marginTop: "20px"}}>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Category</td>
+                        <td>Game Templates / Unity</td>
+                    </tr>
+                    <tr>
+                        <td>First Release</td>
+                        <td>8 September 2022</td>
+                    </tr>
+                    <tr>
+                        <td>Last updated</td>
+                        <td>8 September 2022</td>
+                    </tr>
+                    <tr>
+                        <td>Platforms</td>
+                        <td>Unity 2020</td>
+                    </tr>
+                    <tr>
+                        <td>Files included</td>
+                        <td>unityproj</td>
+                    </tr>
+                    <tr>
+                        <td>File Size</td>
+                        <td>259 MB</td>
+                    </tr>
+                    <tr>
+                        <td>Frameworks</td>
+                        <td>Unity</td>
+                    </tr>
+                </tbody>
+            </table>
+        </Card>
+        
+        {/* <Form.Item name="price" rules={[{ required: true, message: 'Please select any one!' }]}>
           <Radio.Group onChange={handleChange} value={value} style={{backgroundColor: '#00000026 !important'}}>
             <Radio value={`single_app_license-${product?.single_app_license}-${id}`}>Single App License</Radio>
             <div style={floatRightStyle}>${product?.single_app_license} <QuestionCircleTwoTone twoToneColor="#2bc246" style={{ fontSize: '18px'}} onClick={()=> showLicense("single_app_license")}/></div><br />
             <Radio value={`multi_app_license-${product?.multi_app_license}-${id}`}>Multiple App License</Radio>
-            <div style={floatRightStyle}>${product?.multi_app_license} <QuestionCircleTwoTone twoToneColor="#2bc246" style={{ fontSize: '18px'}} onClick={()=> showLicense("multi_app_license")}/></div><br />
-            <Radio value={`reskinned_app_license-${product?.reskinned_app_license}-${id}`}>Reskinned App License</Radio>
-            <div style={floatRightStyle}>${product?.reskinned_app_license} <QuestionCircleTwoTone twoToneColor="#2bc246" style={{ fontSize: '18px'}} onClick={()=> showLicense("reskinned_app_license")}/></div><br />
+            <div style={floatRightStyle}>${product?.multi_app_license} <QuestionCircleTwoTone twoToneColor="#2bc246" style={{ fontSize: '18px'}} onClick={()=> showLicense("multi_app_license")}/></div><br />            
           </Radio.Group>
-        </Form.Item>
+        </Form.Item> */}
 
-        <Form.Item>
+        {/* <Form.Item>
             <span style={{marginTop: '10px'}}>
                 <Checkbox /> Request custom quote:
                 <ul>
                     <li>We will provide you a custom Reskin quote price for your project</li>
                 </ul>
             </span>
-        </Form.Item>
+        </Form.Item> */}
 
-        <Divider />
+        {/* <Divider /> */}
 
-        <Row>
+        {/* <Row>
             <Col span={12}>
                 <Typography>Summary:</Typography>
             </Col>
@@ -353,7 +509,7 @@ const Title = ({product, id}) => {
                 <br />
                 <Link to={`/user-profile/${product?.user?.id}`}>View portfolio</Link>
             </Col>
-        </Row>
+        </Row> */}
     </div>
     )
 }

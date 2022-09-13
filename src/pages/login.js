@@ -36,6 +36,7 @@ export const Login = () => {
                     writeLS('findMeToken', r.data.token)
                     writeLS('id', r.data?.id)
                     dispatch({type: 'USER_SUCCESS', payload: r.data})
+                    // console.log(r.data, 'login custom message')
                 }
             }).then(() => getData(`get-become-seller`).then(r => dispatch(({'type': "BECOME_SELLER_SUCCESS", payload: r.data}))).catch(e => console.log(handleError(e)))).then(() => {
                 getData(`cart/${readLS('id')}`).then(r => setCartState(r.data)).catch(e => setShowError(e))

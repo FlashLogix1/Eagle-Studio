@@ -42,7 +42,7 @@ export const Footer = () => {
                     </Space>
                 </Col>
                 <Col xl={4} lg={4} md={5} sm={12} xs={24}>
-                    <Typography.Title level={4}>About</Typography.Title>
+                    <Typography.Title level={4}>Our Policy</Typography.Title>
                     <Space direction="vertical">
                         <Link to="/developer_terms_condition">Terms & Conditions</Link>
                         <Link to="/privacy-policy">Privacy Policy</Link>

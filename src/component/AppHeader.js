@@ -22,10 +22,10 @@ import {
     MessageOutlined, ProfileOutlined,
     SettingOutlined,
     ShoppingCartOutlined, ShoppingOutlined,
-    UserAddOutlined
+    UserAddOutlined, DollarOutlined, DashboardOutlined, UserOutlined
 } from "@ant-design/icons";
 import {Link} from "react-router-dom";
-import {useContext, useEffect, useState} from "react";
+import {useContext, useEffect, useState, Fragment} from "react";
 import { deleteData, getData, userLogout} from "../actions/common";
 import {handleError} from "../shared/handleError";
 import {useHistory} from "react-router";
@@ -35,6 +35,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {SignUpModal} from "./SignUpModal";
 import {openNotificationWithIcon} from "../shared/notification";
 import {APIContext} from "../context/context";
+
 
 const { useBreakpoint } = Grid
 
@@ -49,6 +50,7 @@ export const AppHeader = ({setLoading}) => {
     const becomeSellerState = useSelector(state => state.BecomeSellerReducer)
     const dispatch = useDispatch()
     let history = useHistory()
+    // const [loggedInUserName, setLoggedInUserName] = useState('')        // get data from redux
 
     useEffect(() => {
         if(readLS('id')) {
@@ -60,8 +62,9 @@ export const AppHeader = ({setLoading}) => {
     },[])
 
     useEffect(() => {
-        if(loginState.errMess)
-            openNotificationWithIcon('error', loginState.errMess)
+        if(loginState.errMess)  openNotificationWithIcon('error', loginState.errMess)
+        // if(loginState.message.username == null) setLoggedInUserName('')
+        // if(loginState.message.username != null) setLoggedInUserName(loginState.message.username)
     }, [loginState])
 
 
@@ -90,6 +93,7 @@ export const AppHeader = ({setLoading}) => {
             dispatch({type: 'USER_LOGOUT', payload: r.data})
         }).then(() => history.push('/login')).catch(e => dispatch({type: 'USER_FAILED', payload: handleError(e)}))
         setVisible(false)
+        // setLoggedInUserName('')
     }
 
     const menu = (
@@ -150,7 +154,7 @@ export const AppHeader = ({setLoading}) => {
         <>
             <LoginModal visible={visible} setCartState={setCartState} setVisible={setVisible} setVisibleSignup={setVisibleSignup} resetFilter={resetFilter} />
             <SignUpModal visible={visibleSignup} setVisibleLogin={setVisible} setVisible={setVisibleSignup} resetFilter={resetFilter} />
-            <div style={{ padding: '2% 10%' }}>
+            <div style={{ padding: '0% 10%' }}>
                 <Row gutter={[0, 30]} style={(screens.xs || screens.sm) && !screens.lg ? { textAlign: 'center' } : {}} justify="center">
                     <Col xs={24} sm={24} lg={8}>
                         <Link to="/">
@@ -170,6 +174,7 @@ export const AppHeader = ({setLoading}) => {
                                     <Dropdown overlay={dropdown} placement="bottomLeft" arrow>
                                         <Button size="large" icon={<SettingOutlined />} />
                                     </Dropdown>
+                                    <Button size="large" icon={<DollarOutlined />}/>
                             </> : <>
                                     <Tooltip title="Login"><Button size="large" icon={<LoginOutlined />} onClick={() => setVisible(true)} /></Tooltip>
                                     <Tooltip title="Sign-up"><Button size="large" icon={<UserAddOutlined />} onClick={() => setVisibleSignup(true)} /></Tooltip>
@@ -177,13 +182,22 @@ export const AppHeader = ({setLoading}) => {
                         </Space>
                     </Col>
                     <Col xs={24} lg={8}>
-                        <Input.Search
-                            placeholder="Search"
-                            allowClear
-                            enterButton
-                            size="large"
-                            onSearch={(value, event) => history.push(`/search/${value}`)}
-                        />
+                        <div style={{display: "flex"}}>
+                            <Input.Search
+                                placeholder="Search"
+                                allowClear
+                                enterButton
+                                size="large"
+                                onSearch={(value, event) => history.push(`/search/${value}`)}
+                            />
+                            {/* {loggedInUserName} */}
+                            {/* {
+                                loginState.LoggedIn && <Fragment><UserOutlined style={{cursor: "pointer"}}/> abc </Fragment>
+                            } */}
+                            {/* {
+                                console.log(loginState.message.username, 'username')
+                            } */}
+                        </div>
                     </Col>
                 </Row>
             </div>
@@ -196,7 +210,10 @@ export const AppHeader = ({setLoading}) => {
                         <Menu.Item key="2">
                             <Link to="/app-template">App Template</Link>
                         </Menu.Item>
-                        <Menu.Item key="3">
+                        <Menu.Item key="8">
+                            <Link to="/app-template">Deposit</Link>
+                        </Menu.Item>
+                        {/* <Menu.Item key="3">
                             <Link to="/hot-deals">Hot Deals</Link>
                         </Menu.Item>
                         <Menu.Item key="4">
@@ -209,7 +226,7 @@ export const AppHeader = ({setLoading}) => {
                             <Menu.Item key="6">
                                 <Link to="/sold-ready-2-use">Sold</Link>
                             </Menu.Item>
-                        </Menu.SubMenu>
+                        </Menu.SubMenu> */}
                         {/*<Menu.Item key="6">*/}
                         {/*    <Link to={'/sell-your-app'}>Sell Your App</Link>*/}
                         {/*</Menu.Item>*/}
@@ -218,22 +235,38 @@ export const AppHeader = ({setLoading}) => {
             </div>
             {loginState.LoggedIn && <div style={{ padding: '0 50px' }}>
                 <Menu mode="horizontal" style={{padding: '0% 6%' }} overflowedIndicator={<span style={{float: "right"}}><MenuOutlined /></span>} >
+                <Menu.Item key="7" icon={<DashboardOutlined />}>
+                        <Link to={'/message'}>Dashboard</Link>
+                    </Menu.Item>
                     <Menu.Item key="11" icon={<MessageOutlined />}>
                         <Link to={'/message'}>Messages</Link>
                     </Menu.Item>
                     <Menu.Item key="12" icon={<ShoppingOutlined />}>
                         <Link to='/wish-list'>WishList</Link>
                     </Menu.Item>
-                    <Menu.Item key="18">
-                            <Link to={'/purchases'}>Purchases</Link>
-                        </Menu.Item>
-                    <Menu.Item key="19" icon={<UserAddOutlined />}>
+                    
+                    {/* <Menu.Item key="19" icon={<UserAddOutlined />}>
                         <Link to={`/becomeSeller/${readLS('id')}`}>Become Seller</Link>
-                    </Menu.Item>
+                    </Menu.Item> */}
                     {/*<Menu.Item key="13">*/}
                     {/*    <Link to={'/follow-list'}>Follow List</Link>*/}
                     {/*</Menu.Item>*/}
-                    {becomeSellerState.becomeSeller && <>
+                    <Menu.Item key="14">
+                        <Link to={'/products'}>Products</Link>
+                    </Menu.Item>
+                    <Menu.Item key="15">
+                        <Link to={'/add-product'}>Add Product</Link>
+                    </Menu.Item>
+                    <Menu.Item key="16">
+                        <Link to={'/earning'}>Earnings</Link>
+                    </Menu.Item>
+                    <Menu.Item key="17">
+                        <Link to={'/order'}>Order</Link>
+                    </Menu.Item>
+                    <Menu.Item key="18">
+                        <Link to={'/purchases'}>Purchase</Link>
+                    </Menu.Item>
+                    {/* {becomeSellerState.becomeSeller && <>
                         <Menu.Item key="14">
                             <Link to={'/products'}>Products</Link>
                         </Menu.Item>
@@ -246,7 +279,7 @@ export const AppHeader = ({setLoading}) => {
                         <Menu.Item key="17">
                             <Link to={'/order'}>Orders</Link>
                         </Menu.Item>
-                    </>}
+                    </>} */}
                 </Menu>
             </div>}
         </>

@@ -41,6 +41,27 @@ export const AppProductCard = (props) => {
   )
 }
 
+
+export const AppProductCardComponent = (props) => {
+    return(
+        <div className="product-box-column">
+            <article className="list-product">
+                <div className="image-container">
+                    <Link to={`/product-detail/${props.id}`}>
+                        <span className='price-tag'>${props.price}</span>
+                        <Image src={props.url} alt="Product Image" />
+                    </Link>
+                </div>
+                <div className="product-label" style={{textAlign: "center"}}>
+                    {props.name}
+                </div>
+            </article>
+        </div>
+    )
+  }
+  
+
+
 export const  AppProductCardDemo = (props) => {
 
     return(

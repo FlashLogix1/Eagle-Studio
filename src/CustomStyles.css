@@ -12,18 +12,18 @@
     height: 170px;
 }
 
-#topImage
+#topImageCustomStyle
 {
     margin-left: 25px;
 }
 
-.card-img-top {
+.cardIimageTopCustomStyle {
     width: 100%;
     border-top-left-radius: calc(0.25rem - 1px);
     border-top-right-radius: calc(0.25rem - 1px);
 }
 
-.btn {
+.buttonCustomStyle {
     display: inline-block;
     font-weight: 400;
     text-align: center;
@@ -38,15 +38,15 @@
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.rounded {
+.roundedCustomStyle {
     border-radius: 0.25rem!important;
 }
 
-.mr-2 {
+.mr2CustomStyle {
     margin-right: 0.5rem!important;
 }
 
-.btn-success {
+.buttonSuccessCustomStyle {
     color: #fff;
     background-color: #6315b8;
     border-color: #6315b8;
@@ -62,7 +62,7 @@ a:hover
     color: white;
 }
 
-.btn-view {
+.buttonViewCustomStyle {
     width: 150px;
 }
 
@@ -91,9 +91,9 @@ a:hover
 
 .heading4CustomStyle
 {
-    margin-top: -17px;
-    padding-left: 3px;
-    margin-bottom: 17px;
+    font-size: 16px;
+    margin-left: -9px;
+    margin-bottom: 20px;
 }
 
 .screenshot-thumb {
@@ -114,4 +114,174 @@ a:hover
 {
     display: flex;
 
+}
+
+
+.cardCustomStyle
+{
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    /* flex-direction: column; */
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+}
+
+.mtCustomStyle
+{
+    margin-top: 1rem!important;
+}
+
+.boxShadowCustomStyle {
+    box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 5%);
+}
+
+.guaranteeBoxCustomStyle {
+    padding: 10px;
+    display: flex;
+    width: 303px;
+    /* margin-left: -24px; */
+    align-self: center;
+}
+
+.guaranteeIconCustomStyle {
+    display: inline-block;
+}
+
+.moneyBackTextCustomStyle {
+    display: inline-block;
+    position: relative;
+    top: 10px;
+    line-height: 20px;
+    left: 13px;
+    font-size: 15px;
+}
+
+.guaranteeBoxCustomStyle strong {
+    color: #d69208;
+}
+
+strong {
+    font-weight: bold;
+    line-height: inherit;
+}
+
+.guaranteeBoxCustomStyle1
+{
+    padding: 10px;
+}
+
+.img1CustomStyle
+{
+    width: 55px;
+    height: 55px;
+    overflow: hidden;
+}
+
+.avatarBox img {
+    border-radius: 50%;
+    display: inline-block;
+    float: left;
+}
+
+
+.authorInfo {
+    padding-left: 18px;
+    position: relative;
+    top: 3px;
+    padding: 0px;
+    margin-left: -15px;
+    margin-top: 10px;
+    float: left;
+    left: 20px;
+    line-height: 16px;
+}
+
+.authorInfo a
+{
+    color: #92024A;
+    cursor: pointer;
+}
+
+
+.authorInfo .authorName {
+    font-size: 24px;
+    line-height: 1;
+    font-weight: bold;
+    margin-bottom: 6px;
+    width: 153px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#aArdianFollow
+{
+    margin-left: 35px;
+    margin-top: 18px;
+    width: 74px;
+    float: right;
+    position: relative;
+    top: -3px;
+    padding-left: 12px !important;
+    height: 39px;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+    color: var(--bs-card-color);
+}
+
+.card-title {
+    margin-bottom: var(--bs-card-title-spacer-y);
+}
+
+tr:nth-child(even) {
+    background-color: #f0f0f0;
+}
+
+.sellingNowCustomStyle
+{
+    border-radius: 5px;
+    padding-left: 5em;
+    padding-right: 5em;
+
+    color: #fff;
+    font-weight: normal;
+    background: #6315b8;
+
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+
+    display: inline-block;
+    vertical-align: middle;
+
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: Raleway;
+
+}
+
+.sellingNowCustomStyle:hover
+{
+    color: white;
+}
+
+.h4CustomStyle
+{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 22px;
 }

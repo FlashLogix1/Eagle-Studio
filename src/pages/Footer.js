@@ -22,30 +22,30 @@ export const Footer = () => {
                             <Link to={{
                                 pathname: `/platform/${v.name.toLowerCase()}`,
                                 query: v
-                            }}>{v.name}</Link>
+                            }}  style={{color: "#92024A", textDecoration: "none"}}>{v.name}</Link>
                         )}
                     </Space>
                 </Col>
                 <Col xl={4} lg={4} md={5} sm={12} xs={24}>
                     <Typography.Title level={4}>Navigation</Typography.Title>
                     <Space direction="vertical">
-                        <Link to="/sell-your-app">Sell your app</Link>
-                        <Link to="/sell-your-app">How to make an app</Link>
+                        <Link to="/sell-your-app" style={{color: "#92024A", textDecoration: "none"}}>Sell your app</Link>
+                        <Link to="/sell-your-app" style={{color: "#92024A", textDecoration: "none"}}>How to make an app</Link>
                     </Space>
                 </Col>
                 <Col xl={4} lg={4} md={5} sm={12} xs={24}>
                     <Typography.Title level={4}>How it works</Typography.Title>
                     <Space direction="vertical">
-                        <Link to="/source-code">Buy iOS apps</Link>
-                        <Link to="/source-code">Buy Android</Link>
-                        <Link to="/source-code">Help & Support</Link>
+                        <Link to="/source-code" style={{color: "#92024A", textDecoration: "none"}}>Buy iOS apps</Link>
+                        <Link to="/source-code" style={{color: "#92024A", textDecoration: "none"}}>Buy Android</Link>
+                        <Link to="/source-code" style={{color: "#92024A", textDecoration: "none"}}>Help & Support</Link>
                     </Space>
                 </Col>
                 <Col xl={4} lg={4} md={5} sm={12} xs={24}>
                     <Typography.Title level={4}>Our Policy</Typography.Title>
                     <Space direction="vertical">
-                        <Link to="/developer_terms_condition">Terms & Conditions</Link>
-                        <Link to="/privacy-policy">Privacy Policy</Link>
+                        <Link to="/developer_terms_condition" style={{color: "#92024A", textDecoration: "none"}}>Terms & Conditions</Link>
+                        <Link to="/privacy-policy" style={{color: "#92024A", textDecoration: "none"}}>Privacy Policy</Link>
                     </Space>
                 </Col>
             </Row>

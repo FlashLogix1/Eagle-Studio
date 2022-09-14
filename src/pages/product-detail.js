@@ -12,8 +12,14 @@ import {
     Radio,
     Row, Skeleton,
     Tabs,
-    Typography, Grid, Space, Modal, Tag, Select
+    Typography, Grid, Space, Modal, Tag, Alert, Select
 } from "antd";
+import { FaCcVisa, FaCcMastercard, FaCcDiscover} from 'react-icons/fa';
+// import {SiCoinbase} from 'react-icons/fa';
+// import Select, { SelectChangeEvent } from '@mui/material/Select';
+// import MenuItem from '@mui/material/MenuItem';
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import {useContext, useEffect, useMemo, useState} from "react";
 import {getData, getDataByID, saveData} from "../actions/common";
 import {handleError} from "../shared/handleError";
@@ -38,6 +44,10 @@ import {APIContext} from "../context/context";
 import apiClient from "../shared/apiClient";
 import ReactStars from "react-rating-stars-component/dist/react-stars";
 import '../../src/CustomStyles.css';
+import { AppProductCardComponent } from "../component/AppProductCard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { IconButton, NativeSelect } from "@mui/material";
+import { Nature } from "@mui/icons-material";
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 const floatRightStyle = {
@@ -61,6 +71,57 @@ export const ProductDetail = () => {
     const history = useHistory()
     const [form] = Form.useForm()
     let user = true
+
+    let array1 = [
+        {
+            id: 1,
+            name: "Tap Blocks Away",
+            price: 27,
+            url: "https://www.sellanycode.com/system/assets/uploads/products/CatGirlSkaterUnitySourceCode_sellanycode_featured_image_1639125127.png"
+        },
+        {
+            id: 2,
+            name: "Tap Blocks Away",
+            price: 25,
+            url: "https://www.sellanycode.com/system/assets/uploads/products/SnowPatrolPicker3D_sellanycode_featured_image_1643273901.jpg"
+        },
+        {
+            id: 3,
+            name: "Tap Blocks Away",
+            price: 27,
+            url: "https://www.sellanycode.com/system/assets/uploads/products/SquidGameSniperLatestReskinnedVersion_sellanycode_featured_image_1637137582.jpg"
+        },
+        {
+            id: 4,
+            name: "Tap Blocks Away",
+            price: 20,
+            url: "https://www.sellanycode.com/system/assets/uploads/products/ShooterAssassinHypercasualTrendingGame_sellanycode_featured_image_1605959231.png"
+        },
+        {
+            id: 5,
+            name: "Tap Blocks Away",
+            price: 30,
+            url: "https://www.sellanycode.com/system/assets/uploads/products/ThePigEscapeUnitySourceCode_sellanycode_featured_image_1639031402.png"
+        },
+        {
+            id: 6,
+            name: "Tap Blocks Away",
+            price: 27,
+            url: "https://www.sellanycode.com/system/assets/uploads/products/AnimalConnectPikachuONET_sellanycode_featured_image_1607382265.jpg"
+        },
+        {
+            id: 7,
+            name: "Tap Blocks Away",
+            price: 50,
+            url: "https://www.sellanycode.com/system/assets/uploads/products/KnockoutStumbleRunRoyaleFallGames_sellanycode_featured_image_1633086944.png"
+        },
+        {
+            id: 8,
+            name: "Tap Blocks Away",
+            price: 3,
+            url: "https://www.sellanycode.com/system/assets/uploads/products/CoinAndTheftUnitySourceCode_sellanycode_featured_image_1638994364.png"
+        }
+    ]
     
 
     useEffect(() => {
@@ -157,7 +218,7 @@ export const ProductDetail = () => {
         <div className="barProductCustomStyle">
             <Row gutter={[130,130]}>
                 <Col lg={4} >
-                    <img src="/p1.png" width="80" height="80" alt="image1" id="topImage" />
+                    <img src="/p1.png" width="80" height="80" alt="image1" id="topImageCustomStyle" />
                 </Col>
                 <Col lg={16}>
                     <h2>Mission Possible | Action</h2>
@@ -190,13 +251,13 @@ export const ProductDetail = () => {
                         {/* <div dangerouslySetInnerHTML={{__html: product?.description}}/> */}
                         <div style={{marginTop: "15px"}}>
                             <Row>
-                                <img src="/p2.png" alt="image2" className="card-img-top" />
+                                <img src="/p2.png" alt="image2" className="cardIimageTopCustomStyle" />
                             </Row>
                             <Row className="card-footer centerCustomStyle">
                                 <div className="centerCustomStyle">
-                                    <a className="btn btn-success mr-2 rounded btn-view">Live Demo</a>
-                                    <a className="btn btn-success mr-2 rounded btn-view">4 Likes</a>
-                                    <a className="btn btn-success mr-2 rounded btn-view">Add to wishlist</a>
+                                    <a className="buttonCustomStyle buttonSuccessCustomStyle mr2CustomStyle roundedCustomStyle buttonViewCustomStyle">Live Demo</a>
+                                    <a className="buttonCustomStyle buttonSuccessCustomStyle mr2CustomStyle roundedCustomStyle buttonViewCustomStyle">4 Likes</a>
+                                    <a className="buttonCustomStyle buttonSuccessCustomStyle mr2CustomStyle roundedCustomStyle buttonViewCustomStyle">Add to wishlist</a>
                                 </div>    
                             </Row>
                             <Row style={{marginTop: "20px"}}>
@@ -226,8 +287,8 @@ export const ProductDetail = () => {
                             <Row style={{marginTop: "20px"}}>
                                 <Card title="Item Description" extra={<Space></Space>}>
                                     <h3>Description</h3>
-                                    <p style={{fontSize: "16px"}}>A casual puzzle in which you have to fall safely. It is deceptively simple, yet profoundly deep. Play through the extensive stages, sharpening your wits as you have fun.</p>
-                                    <p style={{wordBreak: "break-all", fontSize: "14px"}}><strong>Download apk : https://drive.google.com/file/d/1kx2W-u-HNEBnR5ulXqQ5OzYHImbtF37M/view?usp=sharing</strong></p>
+                                    <p style={{fontSize: "15px"}}>A casual puzzle in which you have to fall safely. It is deceptively simple, yet profoundly deep. Play through the extensive stages, sharpening your wits as you have fun.</p>
+                                    <p style={{wordBreak: "break-all", fontSize: "13px"}}><strong>Download apk : https://drive.google.com/file/d/1kx2W-u-HNEBnR5ulXqQ5OzYHImbtF37M/view?usp=sharing</strong></p>
                                 </Card>
                             </Row>
                             <Row style={{marginTop: "20px"}}>
@@ -262,7 +323,7 @@ export const ProductDetail = () => {
                         <div dangerouslySetInnerHTML={{__html: product?.features}} />
                     </Tabs.TabPane> */}
                     <Tabs.TabPane tab={<Badge offset={[10, null]} count={product && product?.product_rating?.length}>Reviews</Badge>} key="2">
-                        <Row gutter={[10,10]}>
+                        {/* <Row gutter={[10,10]}>
                         {product?.product_rating?.map(v =>  <Col><Card size="small" title={<ReactStars
                             count={5}
                             size={24}
@@ -276,15 +337,32 @@ export const ProductDetail = () => {
                                 <p>{v.message}</p>
                             </Card>
                         </Col>)}
-                        </Row>
+                        </Row> */}
+                        <Card>
+                            <Alert message="You have to login to ask a question!" type="warning" showIcon closable />
+                        </Card>
                     </Tabs.TabPane>
                     {/*<Badge count={1}>*/}
                     <Tabs.TabPane tab="Support" key="4">
-                        <div dangerouslySetInnerHTML={{__html: product?.features}} />
+                        {/* <div dangerouslySetInnerHTML={{__html: product?.features}} /> */}
+                        <Card>
+                            <div>
+                                <b style={{display: "block", marginBottom: "17px"}}>What type of support is included?</b>
+                                <ul style={{listStyle: "none"}}>
+                                    <li style={{marginLeft: "-35px"}}><CheckCircleIcon style={{color: "green"}} sx={{ fontSize: 20 }}/> Free support included</li>
+                                    <li style={{marginLeft: "-34px"}}><CheckCircleIcon style={{color: "green"}} sx={{ fontSize: 20 }}/> Future item updates</li>
+                                    <li style={{marginLeft: "-33px"}}><CheckCircleIcon style={{color: "green"}} sx={{ fontSize: 20 }}/> 100% Satisfaction guarantee</li>
+                                    <li style={{marginLeft: "-32px"}}><CheckCircleIcon style={{color: "green"}} sx={{ fontSize: 20 }}/> Download code <b>immediately</b> after purchase</li>
+                                    <li style={{marginLeft: "-32px"}}><CheckCircleIcon style={{color: "green"}} sx={{ fontSize: 20 }}/> Without any isssue on <b>100% and published by the developer</b></li>
+                                    <li style={{marginLeft: "-32px"}}><CheckCircleIcon style={{color: "green"}} sx={{ fontSize: 20 }}/> Quality <b>guarantee</b> for your satisfaction</li>
+                                </ul>
+                            </div>
+                            <Alert message="You have to purchase this item to get support!" type="warning" showIcon closable />
+                        </Card>
                     </Tabs.TabPane>
 
                     <Tabs.TabPane tab={<Badge offset={[10, null]} count={comments && comments?.length}>Comments</Badge>} key="3">
-                        {comments?.length > 0 &&
+                        {/* {comments?.length > 0 &&
                             <List
                                 className="comment-list"
                                 itemLayout="horizontal"
@@ -307,22 +385,45 @@ export const ProductDetail = () => {
                                     Add Comment
                                 </Button>
                             </Form.Item>
-                        </Skeleton>}
+                        </Skeleton>} */}
+                        <Card>
+                            <Alert message="You have to login to ask a question!" type="warning" showIcon closable />
+                            <h4 className="h4CustomStyle">All Questions</h4>
+                            <Alert message="No Question!!" type="warning" showIcon closable />
+                        </Card>
                     </Tabs.TabPane>
                 </Tabs>
                 
             </Col>
             {/* R.H.S sidebar */}
-            <Col xl={8} lg={8} md={24} sm={24} xs={24} style={{marginTop: "100px", paddingRight: "28px", paddingLeft: "10px"}}>
+            <Col xl={8} lg={8} md={24} sm={24} xs={24} style={{marginTop: "100px", paddingLeft: "10px"}}>
                 <Spin indicator={antIcon} spinning={loadingCart}>
                 <Form onFinish={addToCard} form={form}>
-                    <Card bordered={true} style={{ marginLeft: '10px' }}>
-                        <Title product={product} id={id}/>
-                    </Card>
+                    
+                    <Title product={product} id={id}/>
+                    
                 </Form>
                 </Spin>
             </Col>
         </Row>
+        <div style={{fontWeight: "700", marginTop: "45px", marginBottom: "25px"}}>Similar Items</div>
+        <Row  gutter={[10, 10]} style={{marginTop: "10px"}}>
+            {
+                array1 && array1.map(itemParam1 => <Col key={itemParam1.id} xs={24} sm={24} md={12} lg={6} xl={6}>
+                    <AppProductCardComponent id={itemParam1.id} name={itemParam1.name} price={itemParam1.price} url={itemParam1.url} />                            </Col>
+                )       // map ends here
+            }
+        </Row>
+        <div style={{marginBottom: "50px"}}>
+
+        </div>
+        <Divider />
+        <h3 style={{textAlign: "center"}}>Start Selling Your Code. Enjoy <strong>80% Revenue</strong> Share, <strong>Fast Payouts</strong> Without Restrictions!</h3>
+        <div style={{display: "flex", justifyContent: "center", marginTop: "30px"}}>
+            <a className="sellingNowCustomStyle">
+                Start Selling Now
+            </a>
+        </div>
         </Skeleton>
     </div>)
 }
@@ -354,67 +455,84 @@ const Title = ({product, id}) => {
     }
 
     return(<div>
+        <Card>
         <div className="selectCustomStyle">
-            <Select
-            defaultValue={provinceData[0]}
-            style={{
-            width: 180,
-            }}
-        >
-            {provinceData.map((province) => (
-            <Option key={province} style={{fontFamily: "Raleway"}}>{province}</Option>
-            ))}
-        </Select>
+        <Select
+        defaultValue={provinceData[0]}
+        style={{
+          width: 180,
+        }}
+      >
+        {provinceData.map((province) => (
+          <Option key={province}>{province}</Option>
+        ))}
+      </Select>
         <span className="spanCustomStyle">$27</span>
         </div>
 
         <div>
             <ul style={{listStyle: "none"}}>
-                <li>We offer support</li>
-                <li>Future item updates</li>
-                <li>100% Satisfaction guarantee</li>
-                <li>Download code immediately after purchase</li>
+                <li style={{marginLeft: "-35px"}}><CheckCircleIcon style={{color: "green"}} sx={{ fontSize: 20 }}/> We offer support</li>
+                <li style={{marginLeft: "-34px"}}><CheckCircleIcon style={{color: "green"}} sx={{ fontSize: 20 }}/> Future item updates</li>
+                <li style={{marginLeft: "-33px"}}><CheckCircleIcon style={{color: "green"}} sx={{ fontSize: 20 }}/> 100% Satisfaction guarantee</li>
+                <li style={{marginLeft: "-32px"}}><CheckCircleIcon style={{color: "green"}} sx={{ fontSize: 20 }}/> Download code immediately after purchase</li>
             </ul>
-            <button className="btn btn-success mr-2 rounded btn-view" style={{width: "264px", padding: "8px", fontSize: "20px", fontFamily: "Raleway"}}>Buy Now</button>
-            <div style={{backgroundColor: "#f5f5f5"}}>
-                coinbase
+            <button className="buttonCustomStyle buttonSuccessCustomStyle mr2CustomStyle roundedCustomStyle buttonViewCustomStyle" style={{width: "288px", padding: "8px", fontSize: "20px", fontFamily: "Raleway"}}>Buy Now</button>
+            <div style={{backgroundColor: "#f5f5f5", padding: "15px", textAlign: "center", marginTop: "15px", marginBottom: "15px"}}>
+                <FaCcVisa style={{fontSize: "35px"}} /> <FaCcMastercard style={{fontSize: "35px"}} /> <FaCcDiscover style={{fontSize: "35px"}} />
             </div>
         </div>
+        </Card>
 
         <Card title="Information" style={{marginTop: "20px"}}>
-            <table>
+            <table style={{fontSize: "14px"}}>
                 <tbody>
                     <tr>
                         <td>Category</td>
-                        <td>Game Templates / Unity</td>
+                        <td style={{paddingLeft: "13px"}}>Game Templates / Unity</td>
                     </tr>
                     <tr>
                         <td>First Release</td>
-                        <td>8 September 2022</td>
+                        <td style={{paddingLeft: "15px"}}>8 September 2022</td>
                     </tr>
                     <tr>
                         <td>Last updated</td>
-                        <td>8 September 2022</td>
+                        <td style={{paddingLeft: "15px"}}>8 September 2022</td>
                     </tr>
                     <tr>
                         <td>Platforms</td>
-                        <td>Unity 2020</td>
+                        <td style={{paddingLeft: "16px"}}>Unity 2020</td>
                     </tr>
                     <tr>
                         <td>Files included</td>
-                        <td>unityproj</td>
+                        <td style={{paddingLeft: "18px"}}>unityproj</td>
                     </tr>
                     <tr>
                         <td>File Size</td>
-                        <td>259 MB</td>
+                        <td style={{paddingLeft: "19px"}}>259 MB</td>
                     </tr>
                     <tr>
                         <td>Frameworks</td>
-                        <td>Unity</td>
+                        <td style={{paddingLeft: "19px"}}>Unity</td>
                     </tr>
                 </tbody>
             </table>
         </Card>
+
+        <div className="cardCustomStyle mtCustomStyle boxShadowCustomStyle">
+            <div className="guaranteeBoxCustomStyle">
+                <img class="guaranteeIconCustomStyle" width="52" height="62" alt="" src="https://www.sellanycode.com/images/100-percent-satisfaction.svg" />
+                <div class="moneyBackTextCustomStyle"> <strong>100% Guarantee For Item!</strong><br /> Money back guarantee policy applies.</div>
+            </div>
+        </div>
+
+        <div className="cardCustomStyle mtCustomStyle boxShadowCustomStyle">
+            <div className="guaranteeBoxCustomStyle1 avatarBox">
+                <img src="/q1.png" className="img1CustomStyle" />
+            </div>
+            <div class="authorInfo"> <a href="https://www.sellanycode.com/profile/26/"><div class="authorName"> Ardian Kaltara</div></a> <div class="portfolio-link">Independent Developer</div> </div>
+            <a id="aArdianFollow" className="buttonCustomStyle buttonSuccessCustomStyle">Follow</a>
+        </div>
         
         {/* <Form.Item name="price" rules={[{ required: true, message: 'Please select any one!' }]}>
           <Radio.Group onChange={handleChange} value={value} style={{backgroundColor: '#00000026 !important'}}>

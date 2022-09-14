@@ -47,6 +47,7 @@ import {TermsCondition} from "./pages/TermsCondition";
 import {ProductComment} from "./pages/auth/product-comment";
 import {SoldReady2Use} from "./pages/SoldReady2Use";
 import {SignUpMessage} from "./pages/sign-up-message";
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
 

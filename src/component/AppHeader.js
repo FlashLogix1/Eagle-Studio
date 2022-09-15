@@ -156,12 +156,12 @@ export const AppHeader = ({setLoading}) => {
             <SignUpModal visible={visibleSignup} setVisibleLogin={setVisible} setVisible={setVisibleSignup} resetFilter={resetFilter} />
             <div style={{ padding: '0% 10%' }}>
                 <Row gutter={[0, 30]} style={(screens.xs || screens.sm) && !screens.lg ? { textAlign: 'center' } : {}} justify="center">
-                    <Col xs={24} sm={24} lg={8}>
+                    <Col xs={24} sm={24} lg={6}>
                         <Link to="/">
                             <img src={logo} alt="Find me app logo" />
                         </Link>
                     </Col>
-                    <Col xs={24} sm={24} lg={8}>
+                    <Col xs={24} sm={24} lg={6}>
                         <Space>
                             <Badge offset={[-10, null]} count={cartState?.length > 0 ? cartState[0]?.product?.length : 0}>
                                 <Dropdown overlay={menu} placement="bottomCenter">
@@ -181,7 +181,7 @@ export const AppHeader = ({setLoading}) => {
                                 </>}
                         </Space>
                     </Col>
-                    <Col xs={24} lg={8}>
+                    <Col xs={24} lg={6}>
                         <div style={{display: "flex"}}>
                             <Input.Search
                                 placeholder="Search"
@@ -190,14 +190,12 @@ export const AppHeader = ({setLoading}) => {
                                 size="large"
                                 onSearch={(value, event) => history.push(`/search/${value}`)}
                             />
-                            {/* {loggedInUserName} */}
-                            {/* {
-                                loginState.LoggedIn && <Fragment><UserOutlined style={{cursor: "pointer"}}/> abc </Fragment>
-                            } */}
-                            {/* {
-                                console.log(loginState.message.username, 'username')
-                            } */}
                         </div>
+                    </Col>
+                    <Col xs={24} lg={6} className='userProfileNameCustomStyle'>
+                    {
+                        loginState.LoggedIn && <Fragment><UserOutlined style={{cursor: "pointer"}}/> {loginState.message?.username} </Fragment>
+                    }
                     </Col>
                 </Row>
             </div>
@@ -241,17 +239,20 @@ export const AppHeader = ({setLoading}) => {
                     <Menu.Item key="11" icon={<MessageOutlined />}>
                         <Link to={'/message'}>Messages</Link>
                     </Menu.Item>
+                    <Menu.Item key="18">
+                        <Link to={'/purchases'}>Purchase</Link>
+                    </Menu.Item>
                     <Menu.Item key="12" icon={<ShoppingOutlined />}>
                         <Link to='/wish-list'>WishList</Link>
                     </Menu.Item>
                     
-                    {/* <Menu.Item key="19" icon={<UserAddOutlined />}>
+                    <Menu.Item key="19" icon={<UserAddOutlined />}>
                         <Link to={`/becomeSeller/${readLS('id')}`}>Become Seller</Link>
-                    </Menu.Item> */}
+                    </Menu.Item>
                     {/*<Menu.Item key="13">*/}
                     {/*    <Link to={'/follow-list'}>Follow List</Link>*/}
                     {/*</Menu.Item>*/}
-                    <Menu.Item key="14">
+                    {/* <Menu.Item key="14">
                         <Link to={'/products'}>Products</Link>
                     </Menu.Item>
                     <Menu.Item key="15">
@@ -262,11 +263,21 @@ export const AppHeader = ({setLoading}) => {
                     </Menu.Item>
                     <Menu.Item key="17">
                         <Link to={'/order'}>Order</Link>
-                    </Menu.Item>
-                    <Menu.Item key="18">
-                        <Link to={'/purchases'}>Purchase</Link>
-                    </Menu.Item>
-                    {/* {becomeSellerState.becomeSeller && <>
+                    </Menu.Item> */}
+                    {/* {
+                        becomeSellerState.becomeSeller = false
+                    } */}
+
+                    {
+                        console.log(becomeSellerState.becomeSeller, 'outside become seller status')
+                    }
+
+                    {
+                        console.log(loginState.message?.username, '==================Custom Message=========================')
+                    }
+                    
+                    {becomeSellerState.becomeSeller && <>
+                        {console.log(becomeSellerState.becomeSeller, 'inside become seller status')}
                         <Menu.Item key="14">
                             <Link to={'/products'}>Products</Link>
                         </Menu.Item>
@@ -279,7 +290,7 @@ export const AppHeader = ({setLoading}) => {
                         <Menu.Item key="17">
                             <Link to={'/order'}>Orders</Link>
                         </Menu.Item>
-                    </>} */}
+                    </>}
                 </Menu>
             </div>}
         </>

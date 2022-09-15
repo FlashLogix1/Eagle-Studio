@@ -92,8 +92,9 @@ a:hover
 .heading4CustomStyle
 {
     font-size: 16px;
-    margin-left: -9px;
-    margin-bottom: 20px;
+    margin-left: 2px;
+    margin-bottom: 25px;
+    margin-top: -15px;
 }
 
 .screenshot-thumb {
@@ -181,9 +182,11 @@ strong {
 
 .img1CustomStyle
 {
-    width: 55px;
+    /* width: 55px;
     height: 55px;
-    overflow: hidden;
+    overflow: hidden; */
+    width: 94px;
+    height: 80px;
 }
 
 .avatarBox img {
@@ -227,10 +230,12 @@ strong {
 {
     margin-left: 35px;
     margin-top: 18px;
-    width: 74px;
-    float: right;
+    /* width: 74px; */
+    /* float: right; */
     position: relative;
-    top: -3px;
+    /* top: -3px; */
+    top: -5px;
+    left: -28px;
     padding-left: 12px !important;
     height: 39px;
 }
@@ -284,4 +289,53 @@ tr:nth-child(even) {
     margin-bottom: 20px;
     font-weight: 700;
     font-size: 22px;
+}
+
+.portfolio-link
+{
+    color: green;
+}
+
+.cardFollowCustomStyle
+{
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    /* flex-direction: column; */
+    /* min-width: 0; */
+    height: 135px;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+}
+
+.DiveCustomStyle
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonSuccessFollowCustomStyle {
+    color: #fff;
+    background-color: green;
+    border-color: #6315b8;
+}
+
+.newBox1CustomStyle
+{
+    padding: 10px;
+    background-color: #f0f0f0;
+    margin-bottom: 10px;
+}
+
+.userProfileNameCustomStyle
+{
+    position: relative;
+    right: -215px;
 }

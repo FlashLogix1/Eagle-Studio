@@ -1,3 +1,4 @@
+// Sumair editing in src => pages => product-detail.js
 import {
     Badge,
     Button,
@@ -14,8 +15,8 @@ import {
     Tabs,
     Typography, Grid, Space, Modal, Tag, Alert, Select
 } from "antd";
-import { FaCcVisa, FaCcMastercard, FaCcDiscover} from 'react-icons/fa';
-// import {SiCoinbase} from 'react-icons/fa';
+import { FaCcVisa, FaCcMastercard, FaCcDiscover, SiCoinbase, AiOutlineShoppingCart, AiFillStar, AiOutlineEye} from 'react-icons/all';
+// import {SiCoinbase} from 'react-icons/all';
 // import Select, { SelectChangeEvent } from '@mui/material/Select';
 // import MenuItem from '@mui/material/MenuItem';
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -255,13 +256,15 @@ export const ProductDetail = () => {
                             </Row>
                             <Row className="card-footer centerCustomStyle">
                                 <div className="centerCustomStyle">
-                                    <a className="buttonCustomStyle buttonSuccessCustomStyle mr2CustomStyle roundedCustomStyle buttonViewCustomStyle">Live Demo</a>
-                                    <a className="buttonCustomStyle buttonSuccessCustomStyle mr2CustomStyle roundedCustomStyle buttonViewCustomStyle">4 Likes</a>
+                                    <a className="buttonCustomStyle buttonSuccessCustomStyle mr2CustomStyle roundedCustomStyle buttonViewCustomStyle">Youtube</a>
+                                    <a className="buttonCustomStyle buttonSuccessCustomStyle mr2CustomStyle roundedCustomStyle buttonViewCustomStyle">Android</a>
+                                    <a className="buttonCustomStyle buttonSuccessCustomStyle mr2CustomStyle roundedCustomStyle buttonViewCustomStyle">IOS</a>
                                     <a className="buttonCustomStyle buttonSuccessCustomStyle mr2CustomStyle roundedCustomStyle buttonViewCustomStyle">Add to wishlist</a>
                                 </div>    
                             </Row>
+                            {/* <img src="/g1.png" height="45px" alt="image3" /> */}
                             <Row style={{marginTop: "20px"}}>
-                                <Card title="Screenshots" extra={<img src="/g1.png" height="45px" alt="image3" />}>
+                                <Card title="Screenshots" extra={<Space />}>
                                     <Carousel cols={4} rows={1} gap={10} loop showDots>
                                         <Carousel.Item>
                                             <img src="/c1.jpg" alt="CarouselImage1" className="screenshot-thumb" />
@@ -287,8 +290,12 @@ export const ProductDetail = () => {
                             <Row style={{marginTop: "20px"}}>
                                 <Card title="Item Description" extra={<Space></Space>}>
                                     <h3>Description</h3>
-                                    <p style={{fontSize: "15px"}}>A casual puzzle in which you have to fall safely. It is deceptively simple, yet profoundly deep. Play through the extensive stages, sharpening your wits as you have fun.</p>
-                                    <p style={{wordBreak: "break-all", fontSize: "13px"}}><strong>Download apk : https://drive.google.com/file/d/1kx2W-u-HNEBnR5ulXqQ5OzYHImbtF37M/view?usp=sharing</strong></p>
+                                    {/* <p style={{fontSize: "15px"}}>A casual puzzle in which you have to fall safely. It is deceptively simple, yet profoundly deep. Play through the extensive stages, sharpening your wits as you have fun.</p> */}
+                                    {/* <p style={{wordBreak: "break-all", fontSize: "13px"}}><strong>Download apk : https://drive.google.com/file/d/1kx2W-u-HNEBnR5ulXqQ5OzYHImbtF37M/view?usp=sharing</strong></p> */}
+                                    <p style={{fontSize: "15px"}}>Rainbow Friend Fight is an epic open world third person Rainbow Friend gangster fighting game with everything you want & all features you can ask for.</p>
+                                    <p style={{fontSize: "15px"}}>Your Vice City is under attack by Dangerous Dragons and angry robots be the super hero the world wants and save the city using your Rainbow Friend Fight senses and real super hero super powers.</p>
+                                    <p style={{fontSize: "15px"}}>Follow chase and kill the crazy dragons by using your rope hero rope throwing climbing and swinging super power. Climb tall buildings and fight the angry dragons to save your city.</p>
+                                    <p style={{fontSize: "15px"}}>Transform your spider man Fight into cool dragon and fight the enemy dragons in air by flying towards enemy and using Fire spit power of your dragon hero but beware of enemy dragon's fire attacks.</p>
                                 </Card>
                             </Row>
                             <Row style={{marginTop: "20px"}}>
@@ -340,6 +347,7 @@ export const ProductDetail = () => {
                         </Row> */}
                         <Card>
                             <Alert message="You have to login to ask a question!" type="warning" showIcon closable />
+                            <h4 style={{textAlign: "center", marginTop: "15px", marginBottom: "15px", fontWeight: "700", fontSize: "20px"}}>All Reviews</h4>
                         </Card>
                     </Tabs.TabPane>
                     {/*<Badge count={1}>*/}
@@ -434,7 +442,8 @@ const Title = ({product, id}) => {
     const [license, setLicense] = useState()
     const handleChange = (e) => setValue(e.target.value.split('-')[1])
     const { Option } = Select;
-    const provinceData = ['Single License', 'Multiple License'];
+    const licenseInformation = ['Single License', 'Multiple License'];
+    const [number, setNumber] = useState(45)
 
     const getLicenses = () => {
         apiClient(`/license`).then(r => setLicense(r.data.data)).catch(e => openNotificationWithIcon("error", handleError(e)))
@@ -454,20 +463,37 @@ const Title = ({product, id}) => {
         }))
     }
 
+    const handleLicense = (valueParam1) => 
+    {
+        console.log('handle License function is working', valueParam1);
+        if(valueParam1 === licenseInformation[0])
+        {
+            console.log('my number is 45');
+            setNumber(45);
+        }
+        if(valueParam1 === licenseInformation[1])
+        {
+            console.log('my number is 59');
+            setNumber(59);
+        }
+    }
+
     return(<div>
         <Card>
         <div className="selectCustomStyle">
         <Select
-        defaultValue={provinceData[0]}
+        defaultValue={licenseInformation[0]}
         style={{
           width: 180,
         }}
+        // onChange={handleLicenseNumber}
+        onSelect={handleLicense}
       >
-        {provinceData.map((province) => (
-          <Option key={province}>{province}</Option>
+        {licenseInformation.map((license) => (
+          <Option key={license}>{license}</Option>
         ))}
       </Select>
-        <span className="spanCustomStyle">$27</span>
+        <span className="spanCustomStyle">${number}</span>
         </div>
 
         <div>
@@ -479,10 +505,34 @@ const Title = ({product, id}) => {
             </ul>
             <button className="buttonCustomStyle buttonSuccessCustomStyle mr2CustomStyle roundedCustomStyle buttonViewCustomStyle" style={{width: "288px", padding: "8px", fontSize: "20px", fontFamily: "Raleway"}}>Buy Now</button>
             <div style={{backgroundColor: "#f5f5f5", padding: "15px", textAlign: "center", marginTop: "15px", marginBottom: "15px"}}>
-                <FaCcVisa style={{fontSize: "35px"}} /> <FaCcMastercard style={{fontSize: "35px"}} /> <FaCcDiscover style={{fontSize: "35px"}} />
+                <span><FaCcVisa style={{fontSize: "35px"}} /> <FaCcMastercard style={{fontSize: "35px"}} /> <FaCcDiscover style={{fontSize: "35px"}} /></span>
+                {/* <span style={{fontSize: "35px"}}><SiCoinbase /> </span> */}
             </div>
         </div>
         </Card>
+
+        <Card title="Request custom quote" style={{marginTop: "20px"}}>
+            <span>
+                Request custom quote:
+                <ul>
+                    <li>We will provide you a custom Reskin quote price for your project</li>
+                </ul>
+            </span>
+            <button className="buttonCustomStyle buttonSuccessCustomStyle mr2CustomStyle roundedCustomStyle buttonViewCustomStyle" style={{width: "288px", padding: "8px", fontSize: "20px", fontFamily: "Raleway"}}>Request a quote</button>
+        </Card>
+
+        <Card style={{marginTop: "20px"}}>
+            <div className="newBox1CustomStyle"><AiOutlineShoppingCart /> 0 Sales</div>
+            <div className="newBox1CustomStyle"><AiFillStar /> 1 Ratings</div>
+            <div className="newBox1CustomStyle"><AiOutlineEye /> 1188 Views</div>
+        </Card>
+
+        <div className="cardCustomStyle mtCustomStyle boxShadowCustomStyle">
+            <div className="guaranteeBoxCustomStyle">
+                <img class="guaranteeIconCustomStyle" width="52" height="62" alt="" src="https://www.sellanycode.com/images/100-percent-satisfaction.svg" />
+                <div class="moneyBackTextCustomStyle"> <strong>100% Guarantee For Item!</strong><br /> Money back guarantee policy applies.</div>
+            </div>
+        </div>
 
         <Card title="Information" style={{marginTop: "20px"}}>
             <table style={{fontSize: "14px"}}>
@@ -493,24 +543,24 @@ const Title = ({product, id}) => {
                     </tr>
                     <tr>
                         <td>First Release</td>
-                        <td style={{paddingLeft: "15px"}}>8 September 2022</td>
+                        <td style={{paddingLeft: "15px"}}>13 September 2022</td>
                     </tr>
                     <tr>
                         <td>Last updated</td>
-                        <td style={{paddingLeft: "15px"}}>8 September 2022</td>
+                        <td style={{paddingLeft: "15px"}}>13 September 2022</td>
                     </tr>
                     <tr>
                         <td>Platforms</td>
-                        <td style={{paddingLeft: "16px"}}>Unity 2020</td>
+                        <td style={{paddingLeft: "16px"}}>iOS 12, iOS 13, Unity 2019, Unity 2020</td>
                     </tr>
                     <tr>
                         <td>Files included</td>
-                        <td style={{paddingLeft: "18px"}}>unityproj</td>
+                        <td style={{paddingLeft: "18px"}}>.apk, .unityproj, .obj, .prefab, build.settings, Layered .png</td>
                     </tr>
-                    <tr>
+                    {/* <tr>
                         <td>File Size</td>
                         <td style={{paddingLeft: "19px"}}>259 MB</td>
-                    </tr>
+                    </tr> */}
                     <tr>
                         <td>Frameworks</td>
                         <td style={{paddingLeft: "19px"}}>Unity</td>
@@ -519,19 +569,18 @@ const Title = ({product, id}) => {
             </table>
         </Card>
 
-        <div className="cardCustomStyle mtCustomStyle boxShadowCustomStyle">
-            <div className="guaranteeBoxCustomStyle">
-                <img class="guaranteeIconCustomStyle" width="52" height="62" alt="" src="https://www.sellanycode.com/images/100-percent-satisfaction.svg" />
-                <div class="moneyBackTextCustomStyle"> <strong>100% Guarantee For Item!</strong><br /> Money back guarantee policy applies.</div>
-            </div>
-        </div>
+        
 
-        <div className="cardCustomStyle mtCustomStyle boxShadowCustomStyle">
+        <div className="cardFollowCustomStyle mtCustomStyle boxShadowCustomStyle">
             <div className="guaranteeBoxCustomStyle1 avatarBox">
-                <img src="/q1.png" className="img1CustomStyle" />
+                {/* <img src="/q1.png" className="img1CustomStyle" alt="q1.png" /> */}
+                <img src="/userProfile1.png" className="img1CustomStyle" alt="userProfile1.png" />
             </div>
-            <div class="authorInfo"> <a href="https://www.sellanycode.com/profile/26/"><div class="authorName"> Ardian Kaltara</div></a> <div class="portfolio-link">Independent Developer</div> </div>
-            <a id="aArdianFollow" className="buttonCustomStyle buttonSuccessCustomStyle">Follow</a>
+            {/* <div class="authorInfo"> <a href="https://www.sellanycode.com/profile/26/"><div class="authorName"> Ardian Kaltara</div></a> <div class="portfolio-link">Independent Developer</div> </div> */}
+            <div className="DiveCustomStyle">
+                <div className="authorInfo"> <a href="https://www.sellanycode.com/profile/26/"><div className="authorName"> Dive Sole</div></a> <div className="portfolio-link">View Portfolio</div> </div>
+                <a id="aArdianFollow" className="buttonCustomStyle buttonSuccessFollowCustomStyle">Follow this author</a>
+            </div>
         </div>
         
         {/* <Form.Item name="price" rules={[{ required: true, message: 'Please select any one!' }]}>

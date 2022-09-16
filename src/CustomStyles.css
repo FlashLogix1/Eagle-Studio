@@ -1,4 +1,11 @@
 /* Sumair editing in src => CustomStyles.css */
+/* .wrapperCustomStyle
+{
+    overflow: scroll;
+    overflow-x: hidden;
+} */
+
+
 .barCustomStyle
 {
     background-color: #d9d9d9;
@@ -104,11 +111,16 @@ a:hover
 }
 
 .spanCustomStyle {
-    color: #343a40;
+    /* color: #343a40;
     font-weight: bold;
     font-size: 43px;
-    margin-left: 63px;
-    margin-top: -13px;
+    margin-left: 30px;
+    margin-top: -13px; */
+    color: #343a40;
+    font-weight: bold;
+    font-size: 36px;
+    margin-left: 12px;
+    margin-top: -10px;
 }
 
 .selectCustomStyle
@@ -250,7 +262,7 @@ strong {
     margin-bottom: var(--bs-card-title-spacer-y);
 }
 
-tr:nth-child(even) {
+tr:nth-child(odd) {
     background-color: #f0f0f0;
 }
 
@@ -338,4 +350,17 @@ tr:nth-child(even) {
 {
     position: relative;
     right: -215px;
+}
+
+.questionMarkIconCustomStyle
+{
+    font-size: 25px;
+    margin-left: 20px;
+    margin-right: 8px;
+    margin-top: 7px;
+}
+
+.ant-form-item-label
+{
+    display: contents;
 }

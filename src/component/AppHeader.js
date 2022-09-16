@@ -150,6 +150,8 @@ export const AppHeader = ({setLoading}) => {
         </Menu>
     );
 
+    const dollarTooltipText = (<span style={{color: "black"}}>0</span>)
+
     return(
         <>
             <LoginModal visible={visible} setCartState={setCartState} setVisible={setVisible} setVisibleSignup={setVisibleSignup} resetFilter={resetFilter} />
@@ -174,7 +176,10 @@ export const AppHeader = ({setLoading}) => {
                                     <Dropdown overlay={dropdown} placement="bottomLeft" arrow>
                                         <Button size="large" icon={<SettingOutlined />} />
                                     </Dropdown>
-                                    <Button size="large" icon={<DollarOutlined />}/>
+                                    <Tooltip placement="bottom" title={dollarTooltipText} trigger="click" color="white">
+                                        <Button size="large" icon={<DollarOutlined />} />
+                                    </Tooltip>
+                                    
                             </> : <>
                                     <Tooltip title="Login"><Button size="large" icon={<LoginOutlined />} onClick={() => setVisible(true)} /></Tooltip>
                                     <Tooltip title="Sign-up"><Button size="large" icon={<UserAddOutlined />} onClick={() => setVisibleSignup(true)} /></Tooltip>
@@ -209,7 +214,7 @@ export const AppHeader = ({setLoading}) => {
                             <Link to="/app-template">App Template</Link>
                         </Menu.Item>
                         <Menu.Item key="8">
-                            <Link to="/app-template">Deposit</Link>
+                            <Link to="/make-a-deposit">Make a deposit</Link>
                         </Menu.Item>
                         {/* <Menu.Item key="3">
                             <Link to="/hot-deals">Hot Deals</Link>

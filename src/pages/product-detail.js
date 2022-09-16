@@ -13,7 +13,7 @@ import {
     Radio,
     Row, Skeleton,
     Tabs,
-    Typography, Grid, Space, Modal, Tag, Alert, Select
+    Typography, Grid, Space, Modal, Tag, Alert, Select, Popover, Input
 } from "antd";
 import { FaCcVisa, FaCcMastercard, FaCcDiscover, SiCoinbase, AiOutlineShoppingCart, AiFillStar, AiOutlineEye} from 'react-icons/all';
 // import {SiCoinbase} from 'react-icons/all';
@@ -21,7 +21,7 @@ import { FaCcVisa, FaCcMastercard, FaCcDiscover, SiCoinbase, AiOutlineShoppingCa
 // import MenuItem from '@mui/material/MenuItem';
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import {useContext, useEffect, useMemo, useState} from "react";
+import {useContext, useEffect, useMemo, useState, Fragment} from "react";
 import {getData, getDataByID, saveData} from "../actions/common";
 import {handleError} from "../shared/handleError";
 import {useHistory, useParams} from "react-router";
@@ -252,7 +252,7 @@ export const ProductDetail = () => {
                         {/* <div dangerouslySetInnerHTML={{__html: product?.description}}/> */}
                         <div style={{marginTop: "15px"}}>
                             <Row>
-                                <img src="/p2.png" alt="image2" className="cardIimageTopCustomStyle" />
+                                <img src="/n5.png" alt="image2" className="cardIimageTopCustomStyle" />
                             </Row>
                             <Row className="card-footer centerCustomStyle">
                                 <div className="centerCustomStyle">
@@ -443,7 +443,129 @@ const Title = ({product, id}) => {
     const handleChange = (e) => setValue(e.target.value.split('-')[1])
     const { Option } = Select;
     const licenseInformation = ['Single License', 'Multiple License'];
-    const [number, setNumber] = useState(45)
+    const [number, setNumber] = useState(45);
+    const [popOverFlag, setpopOverFlag] = useState(false);
+    const [questionMarkPopOverTitle, setQuestionMarkPopOverTitle] = useState(licenseInformation[0]);
+    const [customQuotePopOverFlag, setCustomQuotePopOverFlag] = useState(false);
+    const [form] = Form.useForm();
+    const [formLayout, setFormLayout] = useState('horizontal');
+
+    const formItemLayout =
+    formLayout === 'horizontal'
+      ? {
+          labelCol: {
+            span: 4,
+          },
+          wrapperCol: {
+            span: 14,
+          },
+        }
+      : null;
+
+      const buttonItemLayout =
+      formLayout === 'horizontal'
+        ? {
+            wrapperCol: {
+              span: 16,
+              offset: 15,
+            },
+          }
+        : null;
+
+        const customQuoteForm = (
+        <Card>
+        <Form
+      {...formItemLayout}
+      layout={formLayout}
+      form={form}
+      initialValues={{
+        layout: formLayout,
+      }}
+      onFinish={(values) => console.log('Success:', values)}
+      onFinishFailed={(errorInfo) => console.log('Failed:', errorInfo)}
+    //   onValuesChange={({ layout }) => setFormLayout(layout)}
+    >
+      {/* <Form.Item label="Form Layout" name="layout">
+        <Radio.Group value={formLayout}>
+          <Radio.Button value="horizontal">Horizontal</Radio.Button>
+          <Radio.Button value="vertical">Vertical</Radio.Button>
+          <Radio.Button value="inline">Inline</Radio.Button>
+        </Radio.Group>
+      </Form.Item> */}
+      <Form.Item label="Full Name" style={{marginBottom: "10px"}}>
+        <Input size="small" />
+      </Form.Item>
+      <Form.Item label="Email" style={{marginBottom: "10px"}}>
+        <Input size="small" />
+      </Form.Item>
+      <Form.Item label="App Name" style={{marginBottom: "10px"}}>
+        <Input size="small" />
+      </Form.Item>
+      <Form.Item label="Requirements Detail & Questions" style={{marginBottom: "10px"}}>
+        <Input size="small" />
+      </Form.Item>
+      <Form.Item label="Link Of App Or Source Code" style={{marginBottom: "10px"}}>
+        <Input size="small" />
+      </Form.Item>
+      <Form.Item
+        name="remember"
+        valuePropName="checked"
+        // wrapperCol={{
+        //   offset: 8,
+        //   span: 16,
+        // }}
+        style={{marginBottom: "10px"}}
+      >
+        <Checkbox>Do you want to add additional features in this app?</Checkbox>
+      </Form.Item>
+      <Form.Item
+        name="remember"
+        valuePropName="checked"
+        // wrapperCol={{
+        //   offset: 8,
+        //   span: 16,
+        // }}
+        style={{marginBottom: "10px"}}
+      >
+        <Checkbox>Do you want to change Gameplay?</Checkbox>
+      </Form.Item>
+      <Form.Item
+        name="remember"
+        valuePropName="checked"
+        // wrapperCol={{
+        //   offset: 8,
+        //   span: 16,
+        // }}
+        style={{marginBottom: "10px"}}
+      >
+        <Checkbox>Wan to integrate 3rd party service or API?</Checkbox>
+      </Form.Item>
+      <Form.Item {...buttonItemLayout}>
+        <Button type="primary">Request a Quote</Button>
+      </Form.Item>
+    </Form>
+    </Card>)
+
+    // const onFormLayoutChange = ({ layout }) => {
+    //     setFormLayout(layout);
+    // };
+
+
+    const singleLicenseContent = (<Fragment>
+        <p>Single License Content</p>
+        <p style={{wordBreak: "break-word"}}>SquidGameSniperLatestReskinnedVersion_sellanycode_featured_image_1637137582</p>
+    </Fragment>);
+
+    const MultipleLicenseContent = (<Fragment>
+        <p>Multiple License Content</p>
+        <p style={{wordBreak: "break-word"}}>SquidGameSniperLatestReskinnedVersion_sellanycode_featured_image_1637137582</p>
+    </Fragment>);
+
+
+    const handleOpenChange = (newOpenParam1) => 
+    {
+        setpopOverFlag(newOpenParam1)
+    }
 
     const getLicenses = () => {
         apiClient(`/license`).then(r => setLicense(r.data.data)).catch(e => openNotificationWithIcon("error", handleError(e)))
@@ -470,11 +592,13 @@ const Title = ({product, id}) => {
         {
             console.log('my number is 45');
             setNumber(45);
+            setQuestionMarkPopOverTitle(licenseInformation[0]);
         }
         if(valueParam1 === licenseInformation[1])
         {
             console.log('my number is 59');
             setNumber(59);
+            setQuestionMarkPopOverTitle(licenseInformation[1]);
         }
     }
 
@@ -493,6 +617,23 @@ const Title = ({product, id}) => {
           <Option key={license}>{license}</Option>
         ))}
       </Select>
+        <span>
+        <Popover
+            content={questionMarkPopOverTitle === licenseInformation[0] ? singleLicenseContent : MultipleLicenseContent}
+            title={questionMarkPopOverTitle}
+            trigger="click"
+            open={popOverFlag}
+            onOpenChange={handleOpenChange}
+            overlayStyle={{
+                width: "70vw"
+            }}
+        >
+            {/* <Button type="primary">Click me</Button> */}
+            <QuestionCircleTwoTone className="questionMarkIconCustomStyle" />
+        </Popover>
+            
+        </span>
+
         <span className="spanCustomStyle">${number}</span>
         </div>
 
@@ -518,7 +659,18 @@ const Title = ({product, id}) => {
                     <li>We will provide you a custom Reskin quote price for your project</li>
                 </ul>
             </span>
-            <button className="buttonCustomStyle buttonSuccessCustomStyle mr2CustomStyle roundedCustomStyle buttonViewCustomStyle" style={{width: "288px", padding: "8px", fontSize: "20px", fontFamily: "Raleway"}}>Request a quote</button>
+            <Popover
+            content={customQuoteForm}
+            title="Request a Custom Quotation"
+            trigger="click"
+            open={customQuotePopOverFlag}
+            onOpenChange={newOpenParam1 => setCustomQuotePopOverFlag(newOpenParam1)}
+            overlayStyle={{
+                width: "70vw"
+            }}
+        >
+            <button className="buttonCustomStyle buttonSuccessCustomStyle mr2CustomStyle roundedCustomStyle buttonViewCustomStyle" style={{width: "288px", padding: "8px", fontSize: "20px", fontFamily: "Raleway", cursor: "pointer"}}>Request a quote</button>
+        </Popover>            
         </Card>
 
         <Card style={{marginTop: "20px"}}>
@@ -539,7 +691,7 @@ const Title = ({product, id}) => {
                 <tbody>
                     <tr>
                         <td>Category</td>
-                        <td style={{paddingLeft: "13px"}}>Game Templates / Unity</td>
+                        <td style={{paddingLeft: "13px", color: "#0000c1"}}>Game Templates / Unity</td>
                     </tr>
                     <tr>
                         <td>First Release</td>
@@ -563,7 +715,7 @@ const Title = ({product, id}) => {
                     </tr> */}
                     <tr>
                         <td>Frameworks</td>
-                        <td style={{paddingLeft: "19px"}}>Unity</td>
+                        <td style={{paddingLeft: "19px", color: "#0000c1"}}>Unity</td>
                     </tr>
                 </tbody>
             </table>

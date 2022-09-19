@@ -7,7 +7,7 @@ import {Card, Table} from "antd";
 import {Link} from "react-router-dom";
 import {UserOutlined} from "@ant-design/icons";
 import {AppBreadcrumb} from "../../component/AppBreadcrumb";
-import '../../../src/CustomStyles.css'
+import '../../../src/CustomStyles.css';
 
 
 export const Message = () => {

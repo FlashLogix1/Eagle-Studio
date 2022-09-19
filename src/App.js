@@ -1,3 +1,4 @@
+// Sumair editing in src => App.js
 import './theme/font.css'
 import './App.less'
 import {Home} from "./pages/Home";
@@ -48,6 +49,8 @@ import {ProductComment} from "./pages/auth/product-comment";
 import {SoldReady2Use} from "./pages/SoldReady2Use";
 import {SignUpMessage} from "./pages/sign-up-message";
 import MakeDeposit from './pages/MakeDeposit';
+import DashboardComponent from './pages/auth/Dashboard';
+import ServicesComponent from './pages/Services';
 // import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
@@ -77,6 +80,9 @@ function App() {
                     {/* <Route path={"/edit-product/step3/:id"}>
                             <EditProductStep3 />
                         </Route> */}
+                        <Route path="/services" exact>
+                            <ServicesComponent />
+                        </Route>
                         <Route path="/make-a-deposit" exact>
                             <MakeDeposit />
                         </Route>
@@ -187,6 +193,9 @@ function App() {
                         <RestrictedRoute path={"/earning"}>
                             <Earning />
                         </RestrictedRoute>
+                        <PrivateRoute path={"/dashboard"}>
+                            <DashboardComponent />
+                        </PrivateRoute>
                         <PrivateRoute path={"/message"}>
                             <Message />
                         </PrivateRoute>

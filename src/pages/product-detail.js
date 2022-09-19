@@ -122,6 +122,7 @@ export const ProductDetail = () => {
             price: 3,
             url: "https://www.sellanycode.com/system/assets/uploads/products/CoinAndTheftUnitySourceCode_sellanycode_featured_image_1638994364.png"
         }
+        
     ]
     
 
@@ -508,7 +509,7 @@ const Title = ({product, id}) => {
         <Input size="small" />
       </Form.Item>
       <Form.Item
-        name="remember"
+        name="remember1"
         valuePropName="checked"
         // wrapperCol={{
         //   offset: 8,
@@ -519,7 +520,7 @@ const Title = ({product, id}) => {
         <Checkbox>Do you want to add additional features in this app?</Checkbox>
       </Form.Item>
       <Form.Item
-        name="remember"
+        name="remember2"
         valuePropName="checked"
         // wrapperCol={{
         //   offset: 8,
@@ -530,7 +531,7 @@ const Title = ({product, id}) => {
         <Checkbox>Do you want to change Gameplay?</Checkbox>
       </Form.Item>
       <Form.Item
-        name="remember"
+        name="remember3"
         valuePropName="checked"
         // wrapperCol={{
         //   offset: 8,

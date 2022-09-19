@@ -239,7 +239,7 @@ export const AppHeader = ({setLoading}) => {
             {loginState.LoggedIn && <div style={{ padding: '0 50px' }}>
                 <Menu mode="horizontal" style={{padding: '0% 6%' }} overflowedIndicator={<span style={{float: "right"}}><MenuOutlined /></span>} >
                 <Menu.Item key="7" icon={<DashboardOutlined />}>
-                        <Link to={'/message'}>Dashboard</Link>
+                        <Link to={'/dashboard'}>Dashboard</Link>
                     </Menu.Item>
                     <Menu.Item key="11" icon={<MessageOutlined />}>
                         <Link to={'/message'}>Messages</Link>

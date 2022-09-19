@@ -5,6 +5,10 @@
     overflow-x: hidden;
 } */
 
+* {
+    box-sizing: border-box;
+  }
+
 
 .barCustomStyle
 {
@@ -363,4 +367,154 @@ tr:nth-child(odd) {
 .ant-form-item-label
 {
     display: contents;
+}
+
+.dashboardBarsCustomStyle
+{
+    padding-block: 25px;
+    padding-inline: 140px;
+    background-color: rgb(0 0 0 / 12%);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    /* background-color: #2196F3; */
+    padding: 10px;
+    color: indianred;
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    /* border: 1px solid rgba(0, 0, 0, 0.8); */
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .flex-container {
+    display: flex;
+    /* background-color: DodgerBlue; */
+    background-color: rgb(0 0 0 / 12%);
+  }
+  
+  .flex-container > div {
+    /* background-color: #f1f1f1; */
+    margin: 10px;
+    padding: 20px;
+    font-size: 20px;
+    justify-content: flex-end;
+  }
+
+.userProfileHeadCustomStyle
+{
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 5%);
+    color: #343a40 !important;
+    padding: 1.5rem !important;
+    margin-bottom: 1rem !important;
+    background-color: #f8f9fa !important;
+    display: block;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.containerCustomStyle
+{
+    max-width: 1086px;
+}
+
+.authorInfoRowCustomStyle
+{
+    min-height: 132px;
+}
+
+.firstColumnCustomStyle
+{
+    float: left;
+    width: 60%;
+    display: flex;
+}
+
+.secondColumnCustomStyle
+{
+    width: 40%;
+    float: right;
+}
+
+.authorTitleCustomStyle
+{
+    margin-left: 25px;
+}
+
+.authorTitleCustomStyle .nameCustomStyle
+{
+    font-weight: bold;
+    margin-top: 2px;
+    font-size: 30px;
+}
+
+.authorTitleCustomStyle .typeCustomStyle
+{
+    font-size: 17px;
+}
+
+.productsCustomStyle
+{
+    font-weight: 700;
+    font-size: 23px;
+    position: relative;
+    left: -6px;
+    margin-bottom: 20px;
+}
+
+.servicesHeadCustomStyle
+{
+    min-height: 200px;
+    background-color: rebeccapurple;
+    background-image: linear-gradient(45deg, #fb4174, transparent);
+}
+
+.servicesHeadCustomStyle .servicesHeadingCustomStyle
+{
+    line-height: 200px;
+    margin-left: 60px;
+}
+
+/* Create two equal columns that floats next to each other */
+.twoColumnCustomStyle {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    /*height: 300px;*/                  /* Should be removed. Only for demonstration */
+}
+  
+/* Clear floats after the columns */
+.rowCustomStyle:after {
+content: "";
+display: table;
+clear: both;
+}
+
+/* Create three equal columns that floats next to each other */
+.threeColumnCustomStyle {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    height: 400px; /* Should be removed. Only for demonstration */
+}
+
+.iconCustomStyle
+{
+    border-radius: 50%;
+    font-size: 24px;
+    padding: 15px;
+    height: 70px;
+    width: 70px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+    margin-bottom: 25px;
+    background-color: #D16FF1;
+    color: white;
 }

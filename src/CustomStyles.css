@@ -498,9 +498,10 @@ clear: both;
 /* Create three equal columns that floats next to each other */
 .threeColumnCustomStyle {
     float: left;
-    width: 33.33%;
+    width: 30%;
     padding: 10px;
-    height: 400px; /* Should be removed. Only for demonstration */
+    height: 340px; /* Should be removed. Only for demonstration */
+    margin-right: 25px;
 }
 
 .iconCustomStyle
@@ -518,3 +519,208 @@ clear: both;
     background-color: #D16FF1;
     color: white;
 }
+
+.tijarahButtonCustomStyle
+{
+    display: inline-block;
+    padding: 12px 40px;
+    color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    -webkit-transition: all .3s ease 0s;
+    -o-transition: all .3s ease 0s;
+    transition: all .3s ease 0s;
+    vertical-align: middle;
+    background: linear-gradient(to right, #FF416C, #FF4B2B);
+}
+
+.joinUsCustomStyle
+{
+    min-height: 175px;
+    background: linear-gradient(to right, #FF416C, #FF4B2B);
+}
+
+.process1CustomStyle
+{
+    min-height: 175px;
+    background-color: #4c4c4c;
+}
+
+.process2CustomStyle
+{
+    text-align: center;
+}
+
+/* .parent {
+height: 200px;
+background: #CCCCCC;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.child {
+background-color: #FFFF00;
+width: 100px;
+height: 100px;
+} */
+
+.process3CustomStyle
+{
+    color: white;
+    line-height: 170px;
+    font-family: cursive;
+}
+
+.process4CustomStyle
+{
+    min-height: 150px;
+}
+
+.process5CustomStyle
+{
+    text-align: center;
+    padding-top: 46px;
+    padding-inline: 110px;
+}
+
+.process6CustomStyle
+{
+    height: 100px;
+    background-color: #0f8c46;   
+}
+
+.process7CustomStyle
+{
+    text-align: center;
+    line-height: 100px;
+}
+
+/* Create two unequal columns that floats next to each other */
+.twoUnEqualColumnCustomStyle {
+    float: left;
+    padding: 10px;
+    height: 190px; /* Should be removed. Only for demonstration */
+}
+  
+.leftCustomStyle {
+width: 25%;
+}
+
+.rightCustomStyle {
+width: 75%;
+}
+
+.process8CustomStyle
+{
+    font-family: Rubik;
+    font-size: 16px;
+}
+
+.packages1CustomStyle
+{
+    min-height: 175px;
+    background-color: #4c4c4c;
+}
+
+.packages2CustomStyle
+{
+    text-align: center;
+    padding-top: 60px;
+}
+
+.packages3CustomStyle
+{
+    color: white;
+    font-family: system-ui;
+    font-size: 25px;
+}
+
+
+.packages4CustomStyle
+{
+    color: white;
+    font-family: cursive;
+    margin-top: -15px;
+}
+
+.twoUnEqualColumn1234CustomStyle
+{
+    float: left;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.left1234CustomStyle
+{
+    width: 75%;
+}
+
+.right1234CustomStyle
+{
+    width: 25%;
+}
+
+.packages5CustomStyle
+{
+    height: auto;
+    width: 100%;
+}
+
+.twoUnEqualColumn1234CustomStyle ul > li
+{
+    margin: 20px 0;
+    list-style-type: circle;
+}
+
+.packages6CustomStyle
+{
+    height: 100px;
+    background-color: #eaeaea;
+}
+
+
+.packages7CustomStyle
+{
+    line-height: 100px;
+    font-size: 20px;
+    padding: 25px;
+    color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    background-color: rgb(109, 109, 109);
+    padding-inline: 70px;
+}
+
+.packages8CustomStyle
+{
+    font-size: 30px;
+    font-family: system-ui;
+    margin-left: 20px;
+}
+
+.packages9CustomStyle
+{
+    height: 100px
+}
+
+.packages10CustomStyle
+{
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 15px;
+    padding-top: 40px;
+}
+
+.packages10CustomStyle a
+{
+    text-decoration: none;
+    color: black;
+}
+
+/* .packages10CustomStyle a:hover
+{
+    color: "#1abc9c";
+} */
+

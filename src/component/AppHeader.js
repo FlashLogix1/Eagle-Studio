@@ -208,13 +208,13 @@ export const AppHeader = ({setLoading}) => {
                 <Layout.Header className="header" >
                     <Menu theme="dark" mode="horizontal" style={{padding: '0% 6%' }} overflowedIndicator={<span style={{float: "right"}}><MenuOutlined /></span>} >
                         <Menu.Item key="1">
-                            <Link to="/game-template">Game Template</Link>
+                            <Link to="/game-template" style={{textDecoration: "none"}}>Game Template</Link>
                         </Menu.Item>
                         <Menu.Item key="2">
-                            <Link to="/app-template">App Template</Link>
+                            <Link to="/app-template" style={{textDecoration: "none"}}>App Template</Link>
                         </Menu.Item>
                         <Menu.Item key="8">
-                            <Link to="/make-a-deposit">Make a deposit</Link>
+                            <Link to="/make-a-deposit" style={{textDecoration: "none"}}>Make a deposit</Link>
                         </Menu.Item>
                         {/* <Menu.Item key="3">
                             <Link to="/hot-deals">Hot Deals</Link>

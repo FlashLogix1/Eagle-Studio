@@ -51,7 +51,10 @@ import {SignUpMessage} from "./pages/sign-up-message";
 import MakeDeposit from './pages/MakeDeposit';
 import DashboardComponent from './pages/auth/Dashboard';
 import ServicesComponent from './pages/Services';
-// import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import ProcessComponent from './pages/Process';
+import PackagesComponent from './pages/Packages';
+import BuyerFaqsComponent from './pages/BuyerFaqs';
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
@@ -80,6 +83,15 @@ function App() {
                     {/* <Route path={"/edit-product/step3/:id"}>
                             <EditProductStep3 />
                         </Route> */}
+                        <Route path="/buyer-faqs" exact>
+                            <BuyerFaqsComponent />
+                        </Route>
+                        <Route path="/packages" exact>
+                            <PackagesComponent />
+                        </Route>
+                        <Route path="/process" exact>
+                            <ProcessComponent />
+                        </Route>
                         <Route path="/services" exact>
                             <ServicesComponent />
                         </Route>

@@ -54,6 +54,7 @@ import ServicesComponent from './pages/Services';
 import ProcessComponent from './pages/Process';
 import PackagesComponent from './pages/Packages';
 import BuyerFaqsComponent from './pages/BuyerFaqs';
+import EarningComponent from './pages/Earning';
 // import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -83,6 +84,9 @@ function App() {
                     {/* <Route path={"/edit-product/step3/:id"}>
                             <EditProductStep3 />
                         </Route> */}
+                        <Route path="/earning" exact>
+                            <EarningComponent />
+                        </Route>
                         <Route path="/buyer-faqs" exact>
                             <BuyerFaqsComponent />
                         </Route>

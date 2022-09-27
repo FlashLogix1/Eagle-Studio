@@ -141,8 +141,10 @@ export const AppProductStep2 = (props) => {
         </div>
     );
 
+    // onFinish={(v) => props.next(v)}
+
     return (<div>
-        <Form form={form} {...layout} onFinish={(v) => props.next(v)}>
+        <Form form={form} {...layout} onFinish={(v) => history.push(`/edit-product/step3/${id}`)}>
 
             <Form.Item name="featured_image" label="Featured image" extra="Should be exactly 650x290" >
                 {/*<ImgCrop rotate aspect={650/290}>*/}

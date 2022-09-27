@@ -16,6 +16,54 @@ export const AppProductStep3 = props => {
     const [fileListForZip, setFileListForZip] = useState()
     const [fileListForPdf, setFileListForPdf] = useState()
     const {id} = useParams()
+    const [singleAppLicense, setSingleAppLicense] = useState();
+    const [multipleAppLicense, setMultipleAppLicense] = useState();
+    const [developmentHours, setDevelopmentHours] = useState();
+
+
+    // const putDataAppProductStep3 = () => 
+    // {
+    //     var myHeaders = new Headers();
+    //     myHeaders.append("Accept", "application/json");
+    //     myHeaders.append("Content-Type", "application/json");
+    //     myHeaders.append("Authorization", `Bearer ${localStorage.getItem("findMeToken")}`);
+
+    //     var raw = JSON.stringify({
+    //     "id": 47,
+    //     "status": 0,
+    //     "title": "qwerty8",
+    //     "description": "qwerty8 description",
+    //     "features": "qwerty8 features",
+    //     "youtube_link": null,
+    //     "google_play_link": null,
+    //     "app_store_link": null,
+    //     "single_app_license": singleAppLicense,
+    //     "multi_app_license": multipleAppLicense,
+    //     "reskinned_app_license": 0,
+    //     "development_hours": developmentHours,
+    //     "product_template_id": 1,
+    //     "product_category_id": 1,
+    //     "user_id": 15,
+    //     "framework_id": 1,
+    //     "created_at": "Fri, Sep 23, 2022 9:42 AM",
+    //     "updated_at": "Fri, Sep 23, 2022 9:42 AM"
+    //     });
+
+    //     var requestOptions = {
+    //     method: 'PUT',
+    //     headers: myHeaders,
+    //     body: raw,
+    //     redirect: 'follow'
+    //     };
+
+    //     fetch(`https://api.findmeapps.com/api/product/${id}`, requestOptions)
+    //     .then(response => response.json())
+    //     .then(result => console.log(result, 'Success put request in AppProductStep3'))
+    //     .catch(error => console.log('error', error));
+    // }
+
+
+
 
     const layout = {
         labelCol: { span: 4 },
@@ -61,7 +109,7 @@ export const AppProductStep3 = props => {
     const draggerProps2 = {
         accept: '.pdf',
         name: 'file',
-        action: `${process.env.REACT_APP_BASE_URL}/${id}/file`,
+        action: `${process.env.REACT_APP_BASE_URL}/${id}/pdf-docs`,
         progress: { strokeWidth: 6, showInfo: true },
         headers: {
             authorization: `Bearer ${readLS('findMeToken')}`
@@ -143,7 +191,10 @@ export const AppProductStep3 = props => {
     }
 
     return(<div>
-        <Form form={form} {...layout} name="control-hooks" onFinish={(v) => props.next(v)}>
+        <Form form={form} {...layout} name="control-hooks" onFinish={(v) => {
+            props.next(v);
+            // putDataAppProductStep3();
+        }}>
 
             <Form.Item label="Product ZIP file:" rules={[{ required: true }]}>
                 <Upload.Dragger {...draggerProps1} beforeUpload={beforeUploadForZipFile} >
@@ -181,11 +232,11 @@ export const AppProductStep3 = props => {
             <Form.Item label="Price suggestion"></Form.Item>
 
             <Form.Item name="single_app_license" label="Single app license ($)">
-                <Input style={{marginLeft: "10px"}} />
+                <Input style={{marginLeft: "10px"}} value={singleAppLicense} onChange={eventParam1 => setSingleAppLicense(eventParam1.target.value)} />
             </Form.Item>
 
             <Form.Item name="multi_app_license" label="Multiple app license ($)">
-                <Input style={{marginLeft: "10px"}} />
+                <Input style={{marginLeft: "10px"}} value={multipleAppLicense} onChange={eventParam1 => setMultipleAppLicense(eventParam1.target.value)} />
             </Form.Item>
 
             {/* <Form.Item name="reskinned_app_license" label="Reskinned app license ($)">
@@ -193,7 +244,7 @@ export const AppProductStep3 = props => {
             </Form.Item> */}
 
             <Form.Item name="development_hours" label="Development hours">
-                <Input style={{marginLeft: "10px"}} />
+                <Input style={{marginLeft: "10px"}} value={developmentHours} onChange={eventParam1 => setDevelopmentHours(eventParam1.target.value)} />
             </Form.Item>
 
             <Form.Item colon={false} label={<Button onClick={() => props.prev()} size={"large"} >Previous</Button>}>

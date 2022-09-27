@@ -5,7 +5,7 @@ import {AppProductStep2} from "../../component/AppProductStep2";
 import {AppProductStep3} from "../../component/AppProductStep3";
 import {saveData} from "../../actions/common";
 import {handleError} from "../../shared/handleError";
-import {useHistory} from "react-router";
+import {useHistory, useParams} from "react-router";
 import {AppBreadcrumb} from "../../component/AppBreadcrumb";
 import '../../../src/CustomStyles.css';
 
@@ -31,11 +31,13 @@ export const AddProduct = () => {
 
     const [breadCrumbName,setBreadCrumbName] = useState('')
     const [current, setCurrent] = useState(0);
-    const history = useHistory()
+    const history = useHistory();
+    const {id} = useParams();
+
 
     const next = (v) => {
         console.log(v)
-        saveData(`/add-product`,v).then(r => typeof (r.data) == "object" && history.push(`/edit-product/step2/${r.data.id}`)).catch(e => console.log(handleError(e)))
+        saveData(`/product`,v).then(r => typeof (r.data) == "object" && history.push(`/edit-product/step2/${r.data.id}`)).catch(e => console.log(handleError(e)))
         
     };
 
@@ -61,7 +63,7 @@ export const AddProduct = () => {
                 ))}
                 </Steps>
                 <div className="steps-content">
-                    <AppPorductStep1 next={next} current={current}/>
+                    <AppPorductStep1 next={next} current={current} productId={id}/>
                 </div>
                 <div className="steps-action">
                 </div>

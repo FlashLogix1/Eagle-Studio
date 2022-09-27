@@ -4,6 +4,7 @@ import {getData} from "../actions/common";
 import {handleError} from "../shared/handleError";
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css'
+import {useHistory, useParams} from "react-router";
 
 export const AppPorductStep1 = (props) => {
 
@@ -13,12 +14,36 @@ export const AppPorductStep1 = (props) => {
     const [os, setOS] = useState()
     const [subCategory, setSubCategory] = useState()
     const [template, setTemplate] = useState()
-    const [, setError] = useState('')
+    const [, setError] = useState('');
+    // Begin form field states
+    const [productTitle, setProductTitle] = useState('');
+    const [productDescription, setProductDescription] = useState('');
+    const [productFeatures, setProductFeatures] = useState('');
+    const [productTemplateId, setProductTemplateId] = useState();
+    const [productCategoryId, setProductCategoryId] = useState();
+    const [frameworkId, setFrameworkId] = useState();
+    const [operatingSystemId, setOperatingSystemId] = useState();
+    const [productSubCategoryId, setProductSubCategoryId] = useState();
+    // End form field states
+    const history = useHistory();
+    const {id} = useParams();
+    const [urlProductId, setUrlProductId] = useState();
+
+
 
     useEffect(() => {
-        getData('/product_template').then(r => setTemplate(r.data)).catch(e => setError(handleError(e)))
-        getData('/product_category').then(r => setProductCategory(r.data)).catch(e => setError(handleError(e)))
-        getData('/framework').then(r => setFramework(r.data)).catch(e => setError(handleError(e)))
+        getData('/product_template').then(r => {
+            setTemplate(r.data);
+            console.log(r.data, 'Success product_template');
+        }).catch(e => setError(handleError(e)))
+        getData('/product_category').then(r => {
+            setProductCategory(r.data);
+            console.log(r.data, 'Success Product Category');
+        }).catch(e => setError(handleError(e)))
+        getData('/framework').then(r => {
+            setFramework(r.data);
+            console.log(r.data, 'Success framework');
+        }).catch(e => setError(handleError(e)))
     },[])
 
     const layout = {
@@ -27,11 +52,17 @@ export const AppPorductStep1 = (props) => {
     };
 
     const getOS = v => {
-        getData(`${v}/operating_system`).then(r => setOS(r.data)).catch(e => setError(handleError(e)))
+        getData(`${v}/operating_system`).then(r => {
+            setOS(r.data);
+            console.log(r.data, 'Success operating_system');
+        }).catch(e => setError(handleError(e)))
     }
 
     const getProductSubcategory = (v) => {
-        getData(`${v}/product_subcategory`).then(r => setSubCategory(r.data)).catch(e => setError(handleError(e)))
+        getData(`${v}/product_subcategory`).then(r => {
+            setSubCategory(r.data);
+            console.log(r.data, 'Success product_subcategory');
+        }).catch(e => setError(handleError(e)))
     }
 
     useEffect(() => {
@@ -42,13 +73,63 @@ export const AppPorductStep1 = (props) => {
             getOS(props?.product?.product_category)
     },[props.product])
 
+    // const postDataAppProductStep1 = () => 
+    // {
+    //     const myHeaders = new Headers();
+    //     myHeaders.append("Accept", "application/json");
+    //     myHeaders.append("X-Requested-With", "application/json");
+    //     myHeaders.append("Authorization", `Bearer ${localStorage.getItem("findMeToken")}`);
+
+    //     const formdata = new FormData();
+    //     formdata.append("title", productTitle);
+    //     formdata.append("product_template", productTemplateId);
+    //     formdata.append("product_category", productCategoryId);
+    //     formdata.append("product_subcategory", productSubCategoryId);
+    //     formdata.append("operating_systems", operatingSystemId);
+    //     formdata.append("framework", frameworkId);
+    //     formdata.append("features", productFeatures);
+    //     formdata.append("description", productDescription);
+
+    //     var requestOptions = {
+    //     method: 'POST',
+    //     headers: myHeaders,
+    //     body: formdata,
+    //     redirect: 'follow'
+    //     };
+
+    //     fetch("https://api.findmeapps.com/api/product", requestOptions)
+    //     .then(response => response.json())
+    //     .then(resultParam1 => {
+    //         console.log(resultParam1, 'Success Post Data AppProductStep1');
+    //         console.log(resultParam1.id, 'new product id');
+    //         // setUrlProductId(resultParam1.id);
+    //         history.push(`/edit-product/step2/${resultParam1.id}`);
+    //     })
+    //     .catch(error => console.log('error', error));
+    // }
+
+
     return (<div>
             {/*  */}
-            <Form form={form} {...layout} name="control-hooks" onFinish={v => props.next(v)}>
+            <Form form={form} {...layout} name="control-hooks" onFinish={v => {
+                console.log(v, 'check me -----');
+                props.next(v);
+                // postDataAppProductStep1();
+            }}>
                 <Form.Item name="product_template" label="Template Type:" rules={[{ required: true }]}>
-                    <Select onChange={(v) => getProductSubcategory(v)} value={props?.product?.product_template.id}>
+                    <Select onSelect={(v) => {
+                        getProductSubcategory(v);
+                        console.log(v, 'product template id');
+                        setProductTemplateId(v);                        // state set
+                    }} value={props?.product?.product_template.id}>
+                        {/* {
+                            console.log(template[0], 'what is template')
+                        }
+                        {
+                            console.log(template[0]?.name, 'what is template')
+                        } */}
                         {template?.length > 0 && template.map(v =>
-                            <Select.Option value={v.id}>{v.name}</Select.Option>
+                            <Select.Option key={v.id}>{v.name}</Select.Option>
                         ).slice(0, 2)}
                     </Select>
                 </Form.Item>
@@ -56,8 +137,17 @@ export const AppPorductStep1 = (props) => {
                 <Form.Item label="Product Subcategory:" name="product_subcategory">
                     <Checkbox.Group style={{ width: '100%' }}>
                         <Row>
+                            {/* {
+                                console.log(subCategory[0], 'Product Subcategory object')
+                            }
+                            {
+                                console.log(subCategory[0]?.id, 'Product Subcategory ID')
+                            } */}
                         {subCategory && subCategory.map(v => <Col>
-                                <Checkbox value={v.id}>{v.name}</Checkbox>
+                                <Checkbox value={v.id} onChange={eventParam1 => {
+                                    console.log(eventParam1.target.value, 'sub category');
+                                    setProductSubCategoryId(eventParam1.target.value);
+                                }}>{v.name}</Checkbox>
                             </Col>
                         )}
                         </Row>
@@ -65,9 +155,19 @@ export const AppPorductStep1 = (props) => {
                 </Form.Item>
 
                 <Form.Item name="product_category" label="Product category:" rules={[{ required: true }]}>
-                    <Select onChange={v => getOS(v)}>
+                    <Select onSelect={v => {
+                        getOS(v);
+                        console.log(v, 'testing product category id');
+                        setProductCategoryId(v);                            // state set
+                    }}>
+                        {/* {
+                            console.log(productCategory[1], 'Product Category object')
+                        }
+                        {
+                            console.log(productCategory[1]?.id, 'Product Category object')
+                        } */}
                         {productCategory && productCategory.map(v =>
-                            <Select.Option value={v.id}>{v.name}</Select.Option>
+                            <Select.Option key={v.id}>{v.name}</Select.Option>
                         )}
                     </Select>
                 </Form.Item>
@@ -75,8 +175,17 @@ export const AppPorductStep1 = (props) => {
                 <Form.Item label="Operating systems:" name="operating_systems">
                     <Checkbox.Group style={{ width: '100%' }} >
                         <Row>
+                            {/* {
+                                console.log(os[0], 'operating system object')
+                            }
+                            {
+                                console.log(os[0]?.id, 'operating system object')
+                            } */}
                             {os && os.map(v => <Col>
-                                    <Checkbox value={v.id}>{v.name}</Checkbox>
+                                    <Checkbox onChange={eventParam1 => {
+                                        console.log(eventParam1.target.value, 'Checkbox');
+                                        setOperatingSystemId(eventParam1.target.value);
+                                    }} value={v.id}>{v.name}</Checkbox>
                                 </Col>
                             )}
                         </Row>
@@ -84,23 +193,40 @@ export const AppPorductStep1 = (props) => {
                 </Form.Item>
 
                 <Form.Item name="framework" label="Framework:" rules={[{ required: true }]}>
-                    <Select>
+                    <Select onSelect={ v => {
+                        console.log(v, 'framework id');
+                        setFrameworkId(v);
+                    }}>
+                        {/* {
+                            console.log(framework[0], 'framework object')
+                        }
+                        {
+                            console.log(framework[0]?.id, 'framework object')
+                        } */}
                         {framework && framework.map(v =>
-                            <Select.Option value={v.id}>{v.name}</Select.Option>
+                            <Select.Option key={v.id}>{v.name}</Select.Option>
                         )}
                     </Select>
                 </Form.Item>
 
                 <Form.Item name="title" label="Product Title:" rules={[{ required: true }]}>
-                    <Input />
+                    <Input value={productTitle} onChange={(eventParam1) => setProductTitle(eventParam1.target.value)} />
                 </Form.Item>
 
                 <Form.Item name="description" label="Description:" rules={[{ required: true }]}>
-                    <TextArea />
+                    <TextArea value={productDescription} onChange={ (paragraphParam1) => {
+                        console.log(paragraphParam1, 'paragraph is received as a parameter for description');
+                        console.log(document.getElementsByTagName('p')[0].innerHTML, 'check 1');
+                        setProductDescription(document.getElementsByTagName('p')[0].innerHTML);         // state set in a React Function Based Component
+                    }} />
                 </Form.Item>
 
                 <Form.Item name="features" label="Features:" rules={[{ required: true }]}>
-                    <TextArea />
+                    <TextArea value={productFeatures} onChange={ (paragraphParam1) => {
+                        console.log(paragraphParam1, 'paragraph is received as a parameter for features');
+                        console.log(document.getElementsByTagName('p')[1].innerHTML, 'check 2');
+                        setProductFeatures(document.getElementsByTagName('p')[1].innerHTML);             // state set in a React Function Based Component
+                    } } />
                 </Form.Item>
 
                 <Row justify="center">

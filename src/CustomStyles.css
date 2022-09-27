@@ -771,8 +771,238 @@ width: 75%;
     margin-top: -15px;
 }
 
-#SvgjsG2000
+.earning7CustomStyle
 {
-    display: none !important;
+    letter-spacing: .03rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+    color: white;
+    padding: 20px 0px 10px 20px;
+}
+
+.earning8CustomStyle
+{
+    text-align: center;
+    color: white;
+}
+
+.earning9CustomStyle
+{
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.earning10CustomStyle
+{
+    border-radius: 1.5rem;
+    background-color: #d5f1fd!important;
+    color: #2f8be6!important;
+    border-color: #d5f1fd;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    padding: 0.4rem 1.25rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    user-select: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.earning11CustomStyle
+{
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.earning12CustomStyle
+{
+    color: #fff!important;
+    text-align: center!important;
+    margin-bottom: 1.5rem!important;
+    margin-top: 1.5rem!important;
+    display: block;
+}
+
+
+.earning13CustomStyle
+{
+    font-size: 3rem!important;
+    line-height: 2.95rem;
+    margin-bottom: 0.5rem!important;
+    display: block!important;
+}
+
+.earning14CustomStyle
+{
+    font-size: 3rem!important;
+    line-height: 2.95rem;
+    color: white;
+}
+
+.earning15CustomStyle
+{
+    font-size: 1.1rem!important;
+}
+
+.earning16CustomStyle
+{
+    font-size: 1.0rem!important;
+    text-align: center!important;
+    margin-top: -0.25rem!important;
+    color: #bdbdbd!important;
+}
+
+
+.earning17CustomStyle
+{
+    font-size: .8rem!important;
+    color: #bdbdbd!important;
+    letter-spacing: .3px;
+    margin-top: -12px;
+}
+
+.earning18CustomStyle
+{
+    text-align: center!important;
+    margin-top: 0.85rem!important;
+}
+
+.earning19CustomStyle
+{
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    padding: 0.4rem 1.25rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    border-radius: 0.35rem;
+    user-select: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    background-color: #efdeff!important;
+    color: #975aff!important;
+    border-color: #efdeff;
+    cursor: pointer;
+}
+
+
+
+/* ............................................................. */
+
+/* expand and collapse css */
+
+.collapsible {
+    /* background-color: #777; */
+    color: black;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+  
+  /* .active, .collapsible:hover {
+    background-color: #555;
+  } */
+  
+  .collapsible:after {
+    content: '\002B';
+    color: white;
+    background-color: black;
+    font-weight: bold;
+    float: left;
+    margin-left: 5px;
+    margin-right: 20px;
+    padding: 0px 10px;
+  }
+  
+  .active:after {
+    content: "\2212";
+  }
+  
+  .content {
+    padding: 0 18px;
+    padding-left: 75px;
+    padding-top: 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    /* background-color: #f1f1f1; */
+    color: #7F8184;
+  }
+
+/* ........................................................... */
+
+.contact1CustomStyle
+{
+    min-height: 200px;
+    background-color: rebeccapurple;
+    background: linear-gradient(to right, #FF416C, #FF4B2B);
+}
+
+.contact2CustomStyle
+{
+    line-height: 200px;
+    margin-left: 60px;
+}
+
+
+.contact3CustomStyle
+{
+    font-weight: 700;
+    text-align: center;
+    font-family: system-ui;
+    font-size: 28px;
+}
+
+.contact4CustomStyle
+{
+    text-align: center;
+    padding-inline: 295px;
+    color: #7F8184;
+    font-family: Rubik;
+}
+
+.contact5CustomStyle
+{
+    max-width: 512px;
+    margin: auto;
+}
+
+/* .ant-input
+{
+    border-radius: 25px;
+    padding: 10px;
+    font-family: Rubik;
+    padding-left: 25px;
+} */
+
+.apexcharts-tooltip-title{
+    display: none;
+}
+
+.ant-table-cell
+{
+    background-color: azure;
+}
+
+.ant-table-thead
+{
+    background-color: azure;
+}
+
+.ant-table-thead .ant-table-cell
+{
+    background-color: azure;
 }
 

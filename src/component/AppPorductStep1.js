@@ -116,8 +116,8 @@ export const AppPorductStep1 = (props) => {
                 props.next(v);
                 // postDataAppProductStep1();
             }}>
-                <Form.Item name="product_template" label="Template Type:" rules={[{ required: true }]}>
-                    <Select onSelect={(v) => {
+                <Form.Item name="product_template" label="Template Type:" rules={[{ required: true }]} style={{paddingLeft: "50px", paddingRight: "75px"}}>
+                    <Select style={{width: "100%"}} onSelect={(v) => {
                         getProductSubcategory(v);
                         console.log(v, 'product template id');
                         setProductTemplateId(v);                        // state set
@@ -134,7 +134,7 @@ export const AppPorductStep1 = (props) => {
                     </Select>
                 </Form.Item>
 
-                <Form.Item label="Product Subcategory:" name="product_subcategory">
+                <Form.Item label="Product Subcategory:" name="product_subcategory" style={{paddingLeft: "16px"}}>
                     <Checkbox.Group style={{ width: '100%' }}>
                         <Row>
                             {/* {
@@ -154,8 +154,8 @@ export const AppPorductStep1 = (props) => {
                     </Checkbox.Group>
                 </Form.Item>
 
-                <Form.Item name="product_category" label="Product category:" rules={[{ required: true }]}>
-                    <Select onSelect={v => {
+                <Form.Item name="product_category" label="Product category:" rules={[{ required: true }]} style={{paddingLeft: "30px", paddingRight: "83px"}}>
+                    <Select style={{width: "100%"}} onSelect={v => {
                         getOS(v);
                         console.log(v, 'testing product category id');
                         setProductCategoryId(v);                            // state set
@@ -172,7 +172,7 @@ export const AppPorductStep1 = (props) => {
                     </Select>
                 </Form.Item>
 
-                <Form.Item label="Operating systems:" name="operating_systems">
+                <Form.Item label="Operating systems:" name="operating_systems" style={{paddingLeft: "31px"}}>
                     <Checkbox.Group style={{ width: '100%' }} >
                         <Row>
                             {/* {
@@ -192,8 +192,8 @@ export const AppPorductStep1 = (props) => {
                     </Checkbox.Group>
                 </Form.Item>
 
-                <Form.Item name="framework" label="Framework:" rules={[{ required: true }]}>
-                    <Select onSelect={ v => {
+                <Form.Item name="framework" label="Framework:" rules={[{ required: true }]} style={{paddingLeft: "74px", paddingRight: "30px"}}>
+                    <Select style={{width: "100%"}} onSelect={ v => {
                         console.log(v, 'framework id');
                         setFrameworkId(v);
                     }}>
@@ -209,20 +209,20 @@ export const AppPorductStep1 = (props) => {
                     </Select>
                 </Form.Item>
 
-                <Form.Item name="title" label="Product Title:" rules={[{ required: true }]}>
-                    <Input value={productTitle} onChange={(eventParam1) => setProductTitle(eventParam1.target.value)} />
+                <Form.Item name="title" label="Product Title:" rules={[{ required: true }]} style={{paddingLeft: "63px", paddingRight: "34px"}}>
+                    <Input style={{width: "100%"}} value={productTitle} onChange={(eventParam1) => setProductTitle(eventParam1.target.value)} />
                 </Form.Item>
 
-                <Form.Item name="description" label="Description:" rules={[{ required: true }]}>
-                    <TextArea value={productDescription} onChange={ (paragraphParam1) => {
+                <Form.Item name="description" label="Description:" rules={[{ required: true }]} style={{paddingLeft: "73px", paddingRight: "24px"}}>
+                    <TextArea style={{width: "100%"}} value={productDescription} onChange={ (paragraphParam1) => {
                         console.log(paragraphParam1, 'paragraph is received as a parameter for description');
                         console.log(document.getElementsByTagName('p')[0].innerHTML, 'check 1');
                         setProductDescription(document.getElementsByTagName('p')[0].innerHTML);         // state set in a React Function Based Component
                     }} />
                 </Form.Item>
 
-                <Form.Item name="features" label="Features:" rules={[{ required: true }]}>
-                    <TextArea value={productFeatures} onChange={ (paragraphParam1) => {
+                <Form.Item name="features" label="Features:" rules={[{ required: true }]} style={{paddingLeft: "93px"}}>
+                    <TextArea style={{width: "100%"}} value={productFeatures} onChange={ (paragraphParam1) => {
                         console.log(paragraphParam1, 'paragraph is received as a parameter for features');
                         console.log(document.getElementsByTagName('p')[1].innerHTML, 'check 2');
                         setProductFeatures(document.getElementsByTagName('p')[1].innerHTML);             // state set in a React Function Based Component

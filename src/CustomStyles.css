@@ -29,9 +29,10 @@
 }
 
 .cardIimageTopCustomStyle {
-    width: 100%;
+    /* width: 100%; */
     border-top-left-radius: calc(0.25rem - 1px);
     border-top-right-radius: calc(0.25rem - 1px);
+    margin: auto;
 }
 
 .buttonCustomStyle {
@@ -991,7 +992,7 @@ width: 75%;
     display: none;
 }
 
-.ant-table-cell
+/* .ant-table-cell
 {
     background-color: azure;
 }
@@ -1004,5 +1005,9 @@ width: 75%;
 .ant-table-thead .ant-table-cell
 {
     background-color: azure;
-}
+} */
 
+/* .ant-upload-picture-card-wrapper
+{
+    padding-left: 200px;
+} */

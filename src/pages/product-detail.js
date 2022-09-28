@@ -56,7 +56,7 @@ const floatRightStyle = {
     fontSize: '16px'
 }
 
-
+// main component
 export const ProductDetail = () => {
 
     const {id} = useParams()
@@ -72,7 +72,11 @@ export const ProductDetail = () => {
     const history = useHistory()
     const [form] = Form.useForm()
     let user = true
+    const [featuredImageState, setFeaturedImageState] = useState({});
+    const [thumbnailImageState, setThumbnailImageState] = useState({});
+    const [screenshotState, setScreenshotState] = useState([]);
 
+    // array of objects
     let array1 = [
         {
             id: 1,
@@ -125,40 +129,79 @@ export const ProductDetail = () => {
         
     ]
     
-
     useEffect(() => {
-        if(error)
-            openNotificationWithIcon("error", error)
-    }, [error])
+        // alert('id passed is: ' + id);
+        var myHeaders = new Headers();
+        myHeaders.append("Accept", "application/json");
+        myHeaders.append("Authorization", `Bearer ${localStorage.getItem("findMeToken")}`);
 
-    useEffect(() => {
-        if(cartState && cartState.length > 0){
-            let cartSelectedData = cartState[0].product.filter((v => v.id == id))
-            if(cartSelectedData[0]?.pivot?.type == "single_app_license")
-                form.setFieldsValue({price : cartSelectedData[0]?.pivot.type+"-"+cartSelectedData[0]?.single_app_license+"-"+id})
-            else
-                form.setFieldsValue({price : cartSelectedData[0]?.pivot?.type+"-"+cartSelectedData[0]?.multi_app_license+"-"+id})
-        }
-    },[cartState])
+        var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+        };
 
-    useEffect(() => {
-        getDataByID(`/product/${id}`).then(r => {
-            if(Object.keys(r.data).length > 0) setProduct(r.data)
-            else history.push('/404')
-            setLoading(false)
-        }).catch(e => {
-            setError(handleError(e))
-            setLoading(false)
+        fetch(`https://api.findmeapps.com/api/${id}/featuredImage`, requestOptions)
+        .then(response => response.json())
+        .then(resultParam1 => {
+            console.log(resultParam1, 'featured image received');
+            setFeaturedImageState(resultParam1);
         })
-        getData(`/${id}/get-comment`).then(r => {
-            setComments(r.data)
-            setLoading(false)
-        }).catch(e => {
-            setError(handleError(e))
-            setLoading(false)
-        })
+        .catch(error => console.log('error', error));
 
-    },[])
+        fetch(`https://api.findmeapps.com/api/${id}/thumbnailImage`, requestOptions)
+        .then(response => response.json())
+        .then(resultParam1 => {
+            console.log(resultParam1, 'thumbnail image received');
+            setThumbnailImageState(resultParam1);
+        })
+        .catch(error => console.log('error', error));
+
+        fetch(`https://api.findmeapps.com/api/${id}/screenshot`, requestOptions)
+        .then(response => response.json())
+        .then(resultParam1 => {
+            console.log(resultParam1, 'screenshot(s) received');
+            setScreenshotState(resultParam1);
+        })
+        .catch(error => console.log('error', error));
+
+
+    }, [])
+
+    // useEffect(() => {
+    //     if(error)
+    //         openNotificationWithIcon("error", error)
+    // }, [error])
+
+    // useEffect(() => {
+    //     if(cartState && cartState.length > 0){
+    //         let cartSelectedData = cartState[0].product.filter((v => v.id == id))
+    //         if(cartSelectedData[0]?.pivot?.type == "single_app_license")
+    //             form.setFieldsValue({price : cartSelectedData[0]?.pivot.type+"-"+cartSelectedData[0]?.single_app_license+"-"+id})
+    //         else
+    //             form.setFieldsValue({price : cartSelectedData[0]?.pivot?.type+"-"+cartSelectedData[0]?.multi_app_license+"-"+id})
+    //     }
+    // },[cartState])
+
+    // useEffect(() => {
+    //     getDataByID(`/product/${id}`).then(r => {
+    //         if(Object.keys(r.data).length > 0) setProduct(r.data)
+    //         else history.push('/404')
+    //         console.log(r.data, 'r.data r.data r.data');
+    //         setLoading(false)
+    //     }).catch(e => {
+    //         setError(handleError(e))
+    //         setLoading(false)
+    //     })
+    //     getData(`/${id}/get-comment`).then(r => {
+    //         setComments(r.data)
+    //         setLoading(false)
+    //     }).catch(e => {
+    //         setError(handleError(e))
+    //         setLoading(false)
+    //     })
+
+    // },[])
 
     const addToCard = (e) => {
         setLoadingCart(true)
@@ -215,12 +258,12 @@ export const ProductDetail = () => {
     }
 
     return (<div className="ralewayCustomStyle">
-        <Skeleton active loading={loading}>
+        {/* <Skeleton active loading={loading}> */}
             {/* L.H.S content */}
         <div className="barProductCustomStyle">
             <Row gutter={[130,130]}>
                 <Col lg={4} >
-                    <img src="/p1.png" width="80" height="80" alt="image1" id="topImageCustomStyle" />
+                    <img src={thumbnailImageState.url} width="80" height="80" alt="image1" id="topImageCustomStyle" />
                 </Col>
                 <Col lg={16}>
                     <h2>Mission Possible | Action</h2>
@@ -253,7 +296,7 @@ export const ProductDetail = () => {
                         {/* <div dangerouslySetInnerHTML={{__html: product?.description}}/> */}
                         <div style={{marginTop: "15px"}}>
                             <Row>
-                                <img src="/n5.png" alt="image2" className="cardIimageTopCustomStyle" />
+                                <img src={featuredImageState.url} alt="image2" className="cardIimageTopCustomStyle" />
                             </Row>
                             <Row className="card-footer centerCustomStyle">
                                 <div className="centerCustomStyle">
@@ -267,7 +310,14 @@ export const ProductDetail = () => {
                             <Row style={{marginTop: "20px"}}>
                                 <Card title="Screenshots" extra={<Space />}>
                                     <Carousel cols={4} rows={1} gap={10} loop showDots>
-                                        <Carousel.Item>
+                                        {
+                                            screenshotState.map(screenshotParam1 => (
+                                                <Carousel.Item>
+                                                    <img src={screenshotParam1.url} alt="image error" className="screenshot-thumb" />
+                                                </Carousel.Item>        
+                                            ))
+                                        }
+                                        {/* <Carousel.Item>
                                             <img src="/c1.jpg" alt="CarouselImage1" className="screenshot-thumb" />
                                         </Carousel.Item>
                                         <Carousel.Item>
@@ -284,7 +334,7 @@ export const ProductDetail = () => {
                                         </Carousel.Item>
                                         <Carousel.Item>
                                             <img src="/c1.jpg" alt="CarouselImage1" className="screenshot-thumb" />
-                                        </Carousel.Item>
+                                        </Carousel.Item> */}
                                         </Carousel>
                                 </Card>
                             </Row>
@@ -433,10 +483,11 @@ export const ProductDetail = () => {
                 Start Selling Now
             </a>
         </div>
-        </Skeleton>
+        {/* </Skeleton> */}
     </div>)
 }
 
+// Helper component
 const Title = ({product, id}) => {
 
     const [value, setValue] = useState(product?.single_app_license)

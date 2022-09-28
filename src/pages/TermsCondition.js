@@ -61,7 +61,7 @@ export const TermsCondition = () => {
     },[])
 
     return (<Row gutter={[20, 10]} >
-        <Col xs={24} sm={24} md={18} lg={20} xl={18} >
+        <Col xs={24} sm={24} md={18} lg={24} xl={24} >
             <div className="barCustomStyle">
                 <AppBreadcrumb name={breadCrumbName} />
             </div>
@@ -73,7 +73,7 @@ export const TermsCondition = () => {
         </div> 
         </Col>
 
-        <Col xs={24} sm={24} md={6} lg={4} xl={6}>
+        {/* <Col xs={24} sm={24} md={6} lg={4} xl={6}>
             <Row gutter={[5, 5]} justify="center" align="middle">
                 <Card title="Terms and Conditions" loading={loading} style={{marginLeft: "20px"}}>
                     {allData && allData.map(v => <div style={{textTransform: 'capitalize'}}>
@@ -81,6 +81,6 @@ export const TermsCondition = () => {
                     </div>)}
                 </Card>
             </Row>
-        </Col>
+        </Col> */}
     </Row>)
 }

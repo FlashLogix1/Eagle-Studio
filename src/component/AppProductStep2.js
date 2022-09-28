@@ -25,6 +25,9 @@ export const AppProductStep2 = (props) => {
     const [, setLoading] = useState(false)
     const [form] = Form.useForm();
     const {id} = useParams()
+    const [errorMessageForFeaturedImage, setErrorMessageForFeaturedImage] = useState(false);
+    const [errorMessageForThumbnailImage, setErrorMessageForThumbnailImage] = useState(false);
+    const [errorMessageForScreenshot, setErrorMessageForScreenshot] = useState(false);
 
     // const beforeUpload = (file) => {
     //     const isJpgOrPng = file.type === 'JPG' || file.type === 'png';
@@ -100,14 +103,19 @@ export const AppProductStep2 = (props) => {
 
     const handleChange = (info) => {
         if(info.file.response)
-            setImage(info.file.response.url)
+        {
+            setImage(info.file.response.url);
+            setErrorMessageForFeaturedImage(false);
+        }
+
         // if (info.file.status === 'error')
         //     message.error(handleError(info.file.response.errors))
         setLoading(false)
     }
 
     const handleChangeScreenShot = ({ fileList }) => {
-        setFileList(fileList)
+        setFileList(fileList);
+        setErrorMessageForScreenshot(false);
     }
 
     const onRemove = (e) => {
@@ -130,7 +138,10 @@ export const AppProductStep2 = (props) => {
 
     const handleThumbnailImage = info => {
         if(info.file.response)
-            setThumbnail(info.file.response.url)
+        {
+            setThumbnail(info.file.response.url);
+            setErrorMessageForThumbnailImage(false);
+        }
         setLoading(false)
     }
 
@@ -142,9 +153,21 @@ export const AppProductStep2 = (props) => {
     );
 
     // onFinish={(v) => props.next(v)}
+    // onFinish={(v) => history.push(`/edit-product/step3/${id}`)}
 
     return (<div>
-        <Form form={form} {...layout} onFinish={(v) => history.push(`/edit-product/step3/${id}`)}>
+        <Form form={form} {...layout} onFinish={(v) => {
+            if(image === undefined) setErrorMessageForFeaturedImage(true);
+            if(thumbnail === undefined) setErrorMessageForThumbnailImage(true);
+            if(fileList.length === 0) setErrorMessageForScreenshot(true);
+            if(image !== undefined && thumbnail !== undefined && fileList.length !== 0)
+            {
+                setErrorMessageForFeaturedImage(false);
+                setErrorMessageForThumbnailImage(false);
+                setErrorMessageForScreenshot(false);
+                props.next(v);
+            }
+        }}>
 
             <Form.Item name="featured_image" label="Featured image" extra="Should be exactly 650x290" >
                 {/*<ImgCrop rotate aspect={650/290}>*/}
@@ -171,8 +194,12 @@ export const AppProductStep2 = (props) => {
                         // customRequest={() => apiClient.post(`${process.env.REACT_APP_BASE_URL}/${id}/featuredImage`, {file: image})}
                     >
                         {image ? <img src={image} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
+                        {console.log(image, 'image image image')}
                     </Upload>
                 {/*</ImgCrop>*/}
+                {
+                    errorMessageForFeaturedImage && <span style={{color: "red"}}>Please upload featured image</span>
+                }
             </Form.Item>
 
             <Form.Item name="thumbnail_image" label="Thumbnail image" extra="Should be exactly 200x140">
@@ -188,10 +215,14 @@ export const AppProductStep2 = (props) => {
                     onChange={handleThumbnailImage}
                 >
                     {thumbnail ? <img src={thumbnail} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
+                    {console.log(thumbnail, 'thumbnail thumbnail thumbnail')}
                 </Upload>
+                {
+                    errorMessageForThumbnailImage && <span style={{color: "red"}}>Please upload thumbnail image</span>
+                }
             </Form.Item>
 
-            <Form.Item name="screenshots" label="Screenshots" >
+            <Form.Item name="screenshots" label="Screenshots">
                 <Upload
                     action={`${process.env.REACT_APP_BASE_URL}/${id}/screenshot`}
                     listType="picture-card"
@@ -204,18 +235,22 @@ export const AppProductStep2 = (props) => {
                     multiple={true}
                 >
                     {fileList?.length >= 20 ? null : uploadButton}
+                    {console.log(fileList, 'fileList fileList fileList')}
                 </Upload>
+                {
+                    errorMessageForScreenshot && <span style={{color: "red"}}>Please upload screenshot</span>
+                }
             </Form.Item>
 
-            <Form.Item name="youtube_link" label="Youtube link">
+            <Form.Item name="youtube_link" label="Youtube link" style={{marginLeft: "30px"}}>
                 <Input />
             </Form.Item>
 
-            <Form.Item name="google_play_link" label="Google play link">
+            <Form.Item name="google_play_link" label="Google play link"  style={{marginRight: "20px"}}>
                 <Input />
             </Form.Item>
 
-            <Form.Item name="app_store_link" label="AppStore link">
+            <Form.Item name="app_store_link" label="AppStore link" style={{marginLeft: "18px"}}>
                 <Input />
             </Form.Item>
 

@@ -92,9 +92,9 @@ function App() {
                         <Route path="/seller-faqs" exact>
                             <SellerFaqsComponent />
                         </Route>
-                        <Route path="/earning" exact>
+                        {/* <Route path="/earning" exact>
                             <EarningComponent />
-                        </Route>
+                        </Route> */}
                         <Route path="/buyer-faqs" exact>
                             <BuyerFaqsComponent />
                         </Route>
@@ -215,7 +215,7 @@ function App() {
                             <Order />
                         </RestrictedRoute>
                         <RestrictedRoute path={"/earning"}>
-                            <Earning />
+                            <EarningComponent />
                         </RestrictedRoute>
                         <PrivateRoute path={"/dashboard"}>
                             <DashboardComponent />

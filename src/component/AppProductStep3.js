@@ -232,7 +232,7 @@ export const AppProductStep3 = props => {
             <Form.Item label="Price suggestion"></Form.Item>
 
             <Form.Item name="single_app_license" label="Single app license ($)">
-                <Input style={{marginLeft: "10px"}} value={singleAppLicense} onChange={eventParam1 => setSingleAppLicense(eventParam1.target.value)} />
+                <Input style={{marginLeft: "26px"}} value={singleAppLicense} onChange={eventParam1 => setSingleAppLicense(eventParam1.target.value)} />
             </Form.Item>
 
             <Form.Item name="multi_app_license" label="Multiple app license ($)">
@@ -244,7 +244,7 @@ export const AppProductStep3 = props => {
             </Form.Item> */}
 
             <Form.Item name="development_hours" label="Development hours">
-                <Input style={{marginLeft: "10px"}} value={developmentHours} onChange={eventParam1 => setDevelopmentHours(eventParam1.target.value)} />
+                <Input style={{marginLeft: "33px"}} value={developmentHours} onChange={eventParam1 => setDevelopmentHours(eventParam1.target.value)} />
             </Form.Item>
 
             <Form.Item colon={false} label={<Button onClick={() => props.prev()} size={"large"} >Previous</Button>}>

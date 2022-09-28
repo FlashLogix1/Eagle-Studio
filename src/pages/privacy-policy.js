@@ -24,7 +24,7 @@ export const PrivacyPolicy = () => {
     },[])
 
     return( <Row gutter={[20, 10]} >
-        <Col xs={24} sm={24} md={18} lg={20} xl={20}>
+        <Col xs={24} sm={24} md={24} lg={24} xl={24}>
             <div className="barCustomStyle">
                 <AppBreadcrumb name={breadCrumbName} />
             </div>
@@ -35,12 +35,12 @@ export const PrivacyPolicy = () => {
                 </Card>
             </div>
         </Col>
-        <Col xs={24} sm={24} md={6} lg={4} xl={4}>
+        {/* <Col xs={24} sm={24} md={6} lg={4} xl={4}>
             <Row gutter={[5, 5]} justify="center" align="middle" style={{ marginLeft: "75.5px" }}>
                 <Card title="Contact Us" style={{ width: 400 }}>
                     <span style={{color: "#2bc246"}}>sales@findmeapp.com</span>
                 </Card>
             </Row>
-        </Col>
+        </Col> */}
     </Row>)
 }

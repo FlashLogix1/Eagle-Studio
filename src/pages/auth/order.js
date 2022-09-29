@@ -115,12 +115,12 @@ export const Order = () => {
 
 
     return (<>
-        <div className="barCustomStyle">
+        <div className="barCustomStyle" style={{marginBottom: "25px"}}>
             <AppBreadcrumb name={breadCrumbName} />
         </div>
         {/* <Typography>Order</Typography> */}
 
-        <div className="site-card-border-less-wrapper" style={{marginTop: "20px"}}>
+        <div className="site-card-border-less-wrapper" style={{width: "900px", margin: "auto"}}>
             <Card title={breadCrumbName} bordered={true}>
                 <Skeleton active loading={loading}>
                     <Table columns={columns} dataSource={orders} scroll={{x: 600}}/>

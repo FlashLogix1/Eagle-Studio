@@ -51,11 +51,11 @@ export const AddProduct = () => {
     },[])
 
     return(<>
-        <div className="barCustomStyle">
+        <div className="barCustomStyle" style={{marginBottom: "25px"}}>
             <AppBreadcrumb name={breadCrumbName} />
         </div>
         {/* <Typography>Create new product</Typography> */}
-        <div className="site-card-border-less-wrapper" style={{marginTop: "20px"}}>
+        <div className="site-card-border-less-wrapper" style={{width: "900px", margin: "auto"}}>
                 <Card title="Create new product" bordered={true}>
                         <Steps current={current}>
                 {steps.map(item => (

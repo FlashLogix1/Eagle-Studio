@@ -155,8 +155,8 @@ export const AppProductStep2 = (props) => {
     // onFinish={(v) => props.next(v)}
     // onFinish={(v) => history.push(`/edit-product/step3/${id}`)}
 
-    return (<div>
-        <Form form={form} {...layout} onFinish={(v) => {
+    return (<div >
+        <Form style={{width: "800px", margin: "auto"}} form={form} {...layout} onFinish={(v) => {
             if(image === undefined) setErrorMessageForFeaturedImage(true);
             if(thumbnail === undefined) setErrorMessageForThumbnailImage(true);
             if(fileList.length === 0) setErrorMessageForScreenshot(true);
@@ -254,7 +254,7 @@ export const AppProductStep2 = (props) => {
                 <Input />
             </Form.Item>
 
-            <Form.Item colon={false} label={<Button onClick={()=> history.push(`/add-product`)} size={"large"} >Previous</Button>}>
+            <Form.Item colon={false} label={<Button onClick={()=> history.push(`/add-product`)} size={"large"} >Previous</Button>} style={{marginTop: "50px"}}>
                 <Button type="primary" htmlType="submit" size={"large"} style={{float: 'right'}}>
                     Save & Continue
                 </Button>

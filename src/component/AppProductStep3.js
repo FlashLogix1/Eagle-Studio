@@ -247,7 +247,7 @@ export const AppProductStep3 = props => {
                 <Input style={{marginLeft: "33px"}} value={developmentHours} onChange={eventParam1 => setDevelopmentHours(eventParam1.target.value)} />
             </Form.Item>
 
-            <Form.Item colon={false} label={<Button onClick={() => props.prev()} size={"large"} >Previous</Button>}>
+            <Form.Item colon={false} label={<Button onClick={() => props.prev()} size={"large"} >Previous</Button>} style={{marginTop: "30px"}}>
                 <Button type="primary" htmlType="submit" size={"large"} style={{float: 'right'}}>
                     Done
                 </Button>

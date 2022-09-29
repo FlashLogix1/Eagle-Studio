@@ -62,15 +62,15 @@ export const TermsCondition = () => {
 
     return (<Row gutter={[20, 10]} >
         <Col xs={24} sm={24} md={18} lg={24} xl={24} >
-            <div className="barCustomStyle">
+            <div className="barCustomStyle" style={{marginBottom: "25px"}}>
                 <AppBreadcrumb name={breadCrumbName} />
             </div>
             {/* <Typography style={{marginTop: '15px', marginBottom: '15px', fontSize: '25px'}}>{breadCrumbName}</Typography> */}
-            <div className="site-card-border-less-wrapper" style={{marginTop: "20px"}}>
-            <Card title={breadCrumbName} bordered={true}>
-                <div dangerouslySetInnerHTML={{__html: data?.terms_condition}}></div>    
-            </Card>
-        </div> 
+            <div className="site-card-border-less-wrapper" style={{width: "700px", margin: "auto"}}>
+                <Card title={breadCrumbName} bordered={true}>
+                    <div dangerouslySetInnerHTML={{__html: data?.terms_condition}}></div>    
+                </Card>
+            </div> 
         </Col>
 
         {/* <Col xs={24} sm={24} md={6} lg={4} xl={6}>

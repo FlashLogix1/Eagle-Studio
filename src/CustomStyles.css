@@ -390,6 +390,7 @@ tr:nth-child(odd) {
     padding: 10px;
     font-size: 20px;
     text-align: center;
+    min-width: 400px;
   }
 
   .flex-container {
@@ -732,7 +733,7 @@ width: 75%;
     width: 22%;
     padding: 10px;
     height: 260px; /* Should be removed. Only for demonstration */
-    margin-right: 25px;
+    margin-right: 30px;
     border-radius: 10px;
     padding-left: 20px;
 }

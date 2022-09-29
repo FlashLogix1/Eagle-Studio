@@ -25,11 +25,11 @@ export const PrivacyPolicy = () => {
 
     return( <Row gutter={[20, 10]} >
         <Col xs={24} sm={24} md={24} lg={24} xl={24}>
-            <div className="barCustomStyle">
+            <div className="barCustomStyle" style={{marginBottom: "25px"}}>
                 <AppBreadcrumb name={breadCrumbName} />
             </div>
             {/* <Typography style={{marginTop: '15px', marginBottom: '15px', fontSize: '25px'}}>{breadCrumbName}</Typography> */}
-            <div className="site-card-border-less-wrapper" style={{marginTop: "20px"}}>
+            <div className="site-card-border-less-wrapper" style={{width: "800px", margin: "auto"}}>
                 <Card title={breadCrumbName} bordered={true}>
                     <div dangerouslySetInnerHTML={{__html: privacy?.policy}}></div>
                 </Card>

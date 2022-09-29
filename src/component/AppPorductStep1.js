@@ -116,7 +116,7 @@ export const AppPorductStep1 = (props) => {
                 props.next(v);
                 // postDataAppProductStep1();
             }}>
-                <Form.Item name="product_template" label="Template Type:" rules={[{ required: true }]} style={{paddingLeft: "50px", paddingRight: "75px"}}>
+                <Form.Item name="product_template" label="Template Type:" rules={[{ required: true }]} style={{paddingLeft: "50px", paddingRight: "68px"}}>
                     <Select style={{width: "100%"}} onSelect={(v) => {
                         getProductSubcategory(v);
                         console.log(v, 'product template id');

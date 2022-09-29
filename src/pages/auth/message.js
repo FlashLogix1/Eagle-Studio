@@ -73,12 +73,12 @@ export const Message = () => {
 
     return(
     <Fragment>
-        <div className="barCustomStyle">
-                <AppBreadcrumb name={breadCrumbName} />
+        <div className="barCustomStyle" style={{marginBottom: "25px"}}>
+            <AppBreadcrumb name={breadCrumbName} />
         </div>
-        <div className="site-card-border-less-wrapper" style={{marginTop: "20px"}}>
-            <Card title="Messages">
-                <Table columns={columns} dataSource={messages} loading={loading} scroll={{x: 700}}/>
+        <div className="site-card-border-less-wrapper">
+            <Card title="Messages" style={{width: "750px", margin: "auto"}}>
+                <Table columns={columns} dataSource={messages} loading={loading} scroll={{x: 700}} size="middle" />
             </Card>
         </div>
     </Fragment>

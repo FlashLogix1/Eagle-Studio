@@ -16,10 +16,10 @@ const DashboardComponent = () => {
     },[])
   return (
     <div>
-        <div className="barCustomStyle">
+        <div className="barCustomStyle" style={{marginBottom: "25px"}}>
             <AppBreadcrumb name={breadCrumbName} />
         </div>
-        <Card style={{marginTop: "20px"}}>
+        <Card style={{width: "880px", margin: "auto"}}>
             {/* <div style={{marginTop: "30px", marginBottom: "30px", textAlign: "center"}}>
                 <div ><FieldTimeOutlined /> $0 Balance</div>
                 <div  style={{marginLeft: "25px"}}><AiOutlineFileSearch /> <span>175 Viewer</span></div>

@@ -26,9 +26,11 @@ export const SellYourApp = () => {
 
     return (<div>
         <div className="barCustomStyle" style={{marginBottom: "25px"}}>
-            <AppBreadcrumb name={breadCrumbName} />
+        <div style={{paddingLeft: "127px"}}>
+                <AppBreadcrumb name={breadCrumbName} />
+            </div>
         </div>
-        <div className="site-card-border-less-wrapper" style={{width: "700px", margin: "auto"}}>
+        <div className="site-card-border-less-wrapper" style={{width: "800px", margin: "auto", marginBottom: "60px"}}>
             <Card title={breadCrumbName} bordered={true}>
                 <div dangerouslySetInnerHTML={{__html: data?.data}}></div>
             </Card>

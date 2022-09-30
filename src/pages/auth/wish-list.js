@@ -105,12 +105,14 @@ export const WishList = () => {
 
         return (<>
             <div className="barCustomStyle" style={{marginBottom: "25px"}}>
-                <AppBreadcrumb name={breadCrumbName} />
+                <div style={{paddingLeft: "127px"}}>
+                    <AppBreadcrumb name={breadCrumbName} />
+                </div>
             </div>
             <span style={{float: "right"}}>
-                <Link to={"/"}>Continue shopping</Link>
+                <Link to={"/"} style={{marginRight: "110px"}}>Continue shopping</Link>
             </span>
-            <div className="site-card-border-less-wrapper" style={{width: "750px", margin: "auto"}}>
+            <div className="site-card-border-less-wrapper" style={{width: "800px", margin: "auto"}}>
                 <Card title={breadCrumbName} bordered={true}>
                     <Skeleton active loading={loading}>
                         <Table columns={columns} dataSource={wishList} />

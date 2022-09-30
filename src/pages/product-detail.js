@@ -49,12 +49,15 @@ import { AppProductCardComponent } from "../component/AppProductCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { IconButton, NativeSelect } from "@mui/material";
 import { Nature } from "@mui/icons-material";
+import {useDispatch, useSelector, connect} from "react-redux";
+import {readLS} from "../shared/LS";
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 const floatRightStyle = {
     float: 'right',
     fontSize: '16px'
 }
+
 
 // main component
 export const ProductDetail = () => {
@@ -75,6 +78,8 @@ export const ProductDetail = () => {
     const [featuredImageState, setFeaturedImageState] = useState({});
     const [thumbnailImageState, setThumbnailImageState] = useState({});
     const [screenshotState, setScreenshotState] = useState([]);
+    const loginState = useSelector(state => state.UserReducer);
+    const dispatch = useDispatch()
 
     // array of objects
     let array1 = [
@@ -128,9 +133,16 @@ export const ProductDetail = () => {
         }
         
     ]
+
+    // useEffect(() => {
+    //     if(loginState.errMess)  openNotificationWithIcon('error', loginState.errMess)
+    // }, [loginState])
+
+
     
     useEffect(() => {
         // alert('id passed is: ' + id);
+        console.log(loginState.LoggedIn, 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz');
         var myHeaders = new Headers();
         myHeaders.append("Accept", "application/json");
         myHeaders.append("Authorization", `Bearer ${localStorage.getItem("findMeToken")}`);
@@ -257,15 +269,23 @@ export const ProductDetail = () => {
         }
     }
 
-    return (<div className="ralewayCustomStyle">
+    return (
+    <Fragment>
+        
+            {loginState.LoggedIn ?
+                <>
+                    {
+                        console.log(loginState.LoggedIn, 'pppppppppppppppppppppppppppppppppppppppppp --- true case')
+                    }
+                    <div className="notoSansCustomStyle">
         {/* <Skeleton active loading={loading}> */}
             {/* L.H.S content */}
         <div className="barProductCustomStyle">
-            <Row gutter={[130,130]}>
-                <Col lg={4} >
+            <Row>
+                <Col lg={4} style={{paddingLeft: "150px"}}>
                     <img src={thumbnailImageState.url} width="80" height="80" alt="image1" id="topImageCustomStyle" />
                 </Col>
-                <Col lg={16}>
+                <Col lg={16} style={{paddingLeft: "150px"}}>
                     <h2>Mission Possible | Action</h2>
                     <h6>TOP TRENDING GAME</h6>
                 </Col>
@@ -275,8 +295,10 @@ export const ProductDetail = () => {
         <Space>
             
         </Space>
-        <Row gutter={[10,10]} style={{marginTop: "-70px", paddingLeft: "28px"}}>
-            <Col xl={16} lg={16} md={24} sm={24} xs={24}>
+        {/* gutter={[10,10]} style={{marginTop: "-70px", paddingLeft: "28px"}} */}
+        <Row style={{padding: "0px 182px", marginTop: "-50px"}}>
+            {/* L.H.S content */}
+            <Col xl={15} lg={15} md={24} sm={24} xs={24} style={{marginRight: "20px"}}>
                 {/* <Image preview={false} width={"100%"} height={236} src={product?.featured_image?.url} /> */}
                 {/* <Row gutter={[10, 10]}>
                     {product && product?.screenshots?.map(v => (<Col style={{margin: '10px 0px'}}><Image width={120} height={94} src={v.url} /></Col>))}
@@ -290,11 +312,11 @@ export const ProductDetail = () => {
                     {product && product.app_store_link && <RenderButtons url={product.app_store_link} text="iOS" icon={<AppleOutlined />} />}
                     <Button onClick={addWishlist} icon={<HeartTwoTone twoToneColor="#eb2f96" />} type="primary">{screens.xs ? '' : 'Add to wishlist'}</Button>
                 </Space> */}
-                
-                <Tabs defaultActiveKey="1" style={{marginTop: 20}}>
+                {/* style={{marginTop: 20}} */}
+                <Tabs defaultActiveKey="1">
                     <Tabs.TabPane tab="Item" key="1">
                         {/* <div dangerouslySetInnerHTML={{__html: product?.description}}/> */}
-                        <div style={{marginTop: "15px"}}>
+                        <div style={{marginTop: "33px"}}>
                             <Row>
                                 <img src={featuredImageState.url} alt="image2" className="cardIimageTopCustomStyle" />
                             </Row>
@@ -465,27 +487,63 @@ export const ProductDetail = () => {
                 </Spin>
             </Col>
         </Row>
-        <div style={{fontWeight: "700", marginTop: "45px", marginBottom: "25px"}}>Similar Items</div>
-        <Row  gutter={[10, 10]} style={{marginTop: "10px"}}>
-            {
-                array1 && array1.map(itemParam1 => <Col key={itemParam1.id} xs={24} sm={24} md={12} lg={6} xl={6}>
-                    <AppProductCardComponent id={itemParam1.id} name={itemParam1.name} price={itemParam1.price} url={itemParam1.url} />                            </Col>
-                )       // map ends here
-            }
-        </Row>
-        <div style={{marginBottom: "50px"}}>
+        <Row style={{padding: "0px 192px", marginBottom: "60px"}}>
+            <div style={{fontWeight: "700", marginTop: "45px"}}>Similar Items</div>
+            <Row  gutter={[10, 10]} style={{marginTop: "10px"}}>
+                {
+                    array1 && array1.map(itemParam1 => <Col key={itemParam1.id} xs={24} sm={24} md={12} lg={6} xl={6}>
+                        <AppProductCardComponent id={itemParam1.id} name={itemParam1.name} price={itemParam1.price} url={itemParam1.url} />                            </Col>
+                    )       // map ends here
+                }
+            </Row>
+            <div style={{marginBottom: "50px"}}>
 
-        </div>
-        <Divider />
-        <h3 style={{textAlign: "center"}}>Start Selling Your Code. Enjoy <strong>80% Revenue</strong> Share, <strong>Fast Payouts</strong> Without Restrictions!</h3>
-        <div style={{display: "flex", justifyContent: "center", marginTop: "30px"}}>
-            <a className="sellingNowCustomStyle">
-                Start Selling Now
-            </a>
-        </div>
+            </div>
+            <Divider />
+            <Row>
+                <h3 style={{margin: "auto"}}>Start Selling Your Code. Enjoy <strong>80% Revenue</strong> Share, <strong>Fast Payouts</strong> Without Restrictions!</h3>
+                <div style={{margin: "auto", marginTop: "30px"}}>
+                <a className="sellingNowCustomStyle">Start Selling Now</a>
+            </div>
+            </Row>
+            
+        </Row>
+        
         {/* </Skeleton> */}
-    </div>)
+                    </div>       
+                    
+            </> : <>
+            {
+                        console.log(loginState.LoggedIn, 'pppppppppppppppppppppppppppppppppppppppppp --- false case')
+                    }
+            {history.push('/product-detail-message')}
+                </>}
+        
+        
+    </Fragment>
+        
+    
+    
+    )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Helper component
 const Title = ({product, id}) => {
@@ -696,7 +754,7 @@ const Title = ({product, id}) => {
                 <li style={{marginLeft: "-33px"}}><CheckCircleIcon style={{color: "green"}} sx={{ fontSize: 20 }}/> 100% Satisfaction guarantee</li>
                 <li style={{marginLeft: "-32px"}}><CheckCircleIcon style={{color: "green"}} sx={{ fontSize: 20 }}/> Download code immediately after purchase</li>
             </ul>
-            <button className="buttonCustomStyle buttonSuccessCustomStyle mr2CustomStyle roundedCustomStyle buttonViewCustomStyle" style={{width: "288px", padding: "8px", fontSize: "20px", fontFamily: "Raleway"}}>Buy Now</button>
+            <button className="buttonCustomStyle buttonSuccessCustomStyle mr2CustomStyle roundedCustomStyle buttonViewCustomStyle" style={{width: "288px", padding: "8px", fontSize: "18px", fontFamily: "Noto Sans", marginLeft: "-10px"}}>Buy Now</button>
             <div style={{backgroundColor: "#f5f5f5", padding: "15px", textAlign: "center", marginTop: "15px", marginBottom: "15px"}}>
                 <span><FaCcVisa style={{fontSize: "35px"}} /> <FaCcMastercard style={{fontSize: "35px"}} /> <FaCcDiscover style={{fontSize: "35px"}} /></span>
                 {/* <span style={{fontSize: "35px"}}><SiCoinbase /> </span> */}
@@ -721,7 +779,7 @@ const Title = ({product, id}) => {
                 width: "70vw"
             }}
         >
-            <button className="buttonCustomStyle buttonSuccessCustomStyle mr2CustomStyle roundedCustomStyle buttonViewCustomStyle" style={{width: "288px", padding: "8px", fontSize: "20px", fontFamily: "Raleway", cursor: "pointer"}}>Request a quote</button>
+            <button className="buttonCustomStyle buttonSuccessCustomStyle mr2CustomStyle roundedCustomStyle buttonViewCustomStyle" style={{width: "288px", padding: "8px", fontSize: "18px", fontFamily: "Noto Sans", cursor: "pointer", marginLeft: "-10px"}}>Request a quote</button>
         </Popover>            
         </Card>
 

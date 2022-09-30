@@ -155,7 +155,7 @@ export const AppProductStep2 = (props) => {
     // onFinish={(v) => props.next(v)}
     // onFinish={(v) => history.push(`/edit-product/step3/${id}`)}
 
-    return (<div >
+    return (<div>
         <Form style={{width: "800px", margin: "auto"}} form={form} {...layout} onFinish={(v) => {
             if(image === undefined) setErrorMessageForFeaturedImage(true);
             if(thumbnail === undefined) setErrorMessageForThumbnailImage(true);

@@ -23,6 +23,7 @@ export const Home = () => {
 
     return (
         <>
+        <div style={{padding: "0px 145px", marginBottom: "60px"}}>
             <Carousel autoplay adaptiveHeight={true}>
                 {sliderImages && sliderImages.map(v => <div>
                         <Image src={v.url} preview={false}/>
@@ -106,6 +107,7 @@ export const Home = () => {
             <div style={{textAlign: 'center'}}>
                 <Button type="primary" >VIEW ALL APPS</Button>
             </div>
+        </div>
         </>
     )
 }

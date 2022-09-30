@@ -6,7 +6,7 @@ export const ProductAdded = () => {
 
     return (<>
 
-        <Card title="Product has been updated" style={{ width: "700px", margin: "auto" }}>
+        <Card title="Product has been updated" style={{ width: "800px", marginLeft: "auto", marginRight: "auto", marginTop: "20px", marginBottom: "60px"}}>
             <Typography.Text style={{color: "green", fontSize: "30px"}}>Your changes were successfully updated!</Typography.Text>
             <br />
             <Typography.Text>Please wait for approval from admin. when admin approved product shows </Typography.Text>

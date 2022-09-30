@@ -23,7 +23,7 @@ const MakeDeposit = () => {
 
     return (
     <div>
-        <Card style={{width: "700px", margin: "auto"}}>
+        <Card style={{width: "800px", margin: "auto", marginTop: "20px", marginBottom: "60px"}}>
             <Title level={3}>Make a Deposit</Title>
             <Paragraph>Choose following option to deposit money and avoid PayPal Handling Fee!</Paragraph>
 

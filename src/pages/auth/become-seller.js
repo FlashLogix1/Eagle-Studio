@@ -68,9 +68,11 @@ export const BecomeSeller = () => {
 
     return (<>
         <div className="barCustomStyle" style={{marginBottom: "25px"}}>
-            <AppBreadcrumb name="BECOME SELLER" />
+            <div style={{paddingLeft: "127px"}}>
+                <AppBreadcrumb name="BECOME SELLER" />
+            </div>
         </div>
-        <div className="site-card-border-less-wrapper" style={{width: "650px", margin: "auto"}}>
+        <div className="site-card-border-less-wrapper" style={{width: "800px", margin: "auto"}}>
                 <Card title="Developer Details" bordered={true}>
                     <Skeleton loading={loading} active>
                         <Form form={form} name="control-hooks" onFinish={onFinish} title={"Developer Details"}  labelCol={{ span: 12}}

@@ -60,13 +60,15 @@ export const TermsCondition = () => {
         setBreadCrumbName(url.toUpperCase())
     },[])
 
-    return (<Row gutter={[20, 10]} >
+    return (<Row gutter={[20, 10]} style={{marginBottom: "60px"}}>
         <Col xs={24} sm={24} md={18} lg={24} xl={24} >
             <div className="barCustomStyle" style={{marginBottom: "25px"}}>
-                <AppBreadcrumb name={breadCrumbName} />
+                <div style={{paddingLeft: "127px"}}>
+                    <AppBreadcrumb name={breadCrumbName} />
+                </div>
             </div>
             {/* <Typography style={{marginTop: '15px', marginBottom: '15px', fontSize: '25px'}}>{breadCrumbName}</Typography> */}
-            <div className="site-card-border-less-wrapper" style={{width: "700px", margin: "auto"}}>
+            <div className="site-card-border-less-wrapper" style={{width: "800px", margin: "auto"}}>
                 <Card title={breadCrumbName} bordered={true}>
                     <div dangerouslySetInnerHTML={{__html: data?.terms_condition}}></div>    
                 </Card>

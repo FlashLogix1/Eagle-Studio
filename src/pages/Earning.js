@@ -308,7 +308,7 @@ const EarningComponent = () => {
     // main component web ui
     return (
     <Fragment>
-        <Row>
+        <Row style={{marginTop: "20px", padding: "0px 150px"}}>
           <Col xs={24} sm={24} md={24} lg={5} style={{backgroundImage: "linear-gradient(45deg,#7441db,#c89cff)", padding: "10px 0px 10px 20px", borderRadius: "10px", marginRight: "58px"}}>
             <Row>
               <Col lg={12}>
@@ -382,7 +382,7 @@ const EarningComponent = () => {
                 <LineChart array={array4} />
             </div>
         </div> */}
-        <Row style={{marginTop: "30px"}}>
+        <Row style={{marginTop: "30px", padding: "0px 150px"}}>
           <Col lg={24}>
           {/* <Title level={4}>PRODUCTS SALES</Title> */}
             <Card title="PRODUCTS SALES">
@@ -390,15 +390,15 @@ const EarningComponent = () => {
             </Card>
           </Col>
         </Row>
-        {/* style={{backgroundColor: "azure"}} */}
-        <Row style={{marginTop: "30px"}}>
+        {/* Thrid Row */}
+        <Row style={{marginTop: "30px", padding: "0px 150px"}}>
             <Col lg={8}>
                 <Card title="Statistics">
                   <h4 style={{textAlign: "center"}}>Last 6 Months Sales</h4>
                   <DistributedColumnsChart />
                 </Card>
             </Col>
-            <Col lg={15} style={{marginLeft: "44px"}}>
+            <Col lg={15} style={{marginLeft: "43px"}}>
                 <Card title="Shopping Cart" style={{height: "509px"}}>
                 <Table
                   columns={columns}
@@ -411,14 +411,14 @@ const EarningComponent = () => {
                 </Card>
             </Col>
         </Row>
-        {/* style={{backgroundColor: "azure"}} */}
-        <Row style={{marginTop: "30px"}}>
+        {/* Fourth Row */}
+        <Row style={{marginTop: "30px", padding: "0px 150px"}}>
           <Col lg={16}>
             <Card title="Visit & Sales Statistics">
               <Line data={userData}/>
             </Card>
           </Col>
-          <Col lg={7} style={{backgroundImage: "linear-gradient(45deg,#562db7,#60aff0)", marginLeft: "44px"}}>
+          <Col lg={7} style={{backgroundImage: "linear-gradient(45deg,#562db7,#60aff0)", marginLeft: "43px"}}>
             <h4 className='earning7CustomStyle'>Statistics</h4>
             <div className='earning8CustomStyle'>
               <span className='earning9CustomStyle'>Month</span> 
@@ -436,15 +436,15 @@ const EarningComponent = () => {
             </div>
           </Col>
         </Row>
-        {/* style={{backgroundColor: "azure"}} */}
-        <Row style={{marginTop: "30px"}}>
+        {/* Fifth Row */}
+        <Row style={{marginTop: "30px", padding: "0px 150px", marginBottom: "60px"}}>
           <Col lg={7}>
               <Card title="Statistics">
                   <p className='earning16CustomStyle'>Hobbies</p>
                   <DistributedColumnsChart2 />
               </Card>
           </Col>
-          <Col lg={7} style={{margin: "0px 67px"}}>
+          <Col lg={7} style={{margin: "0px 65px"}}>
               <Card title="User List">
                 <UserListComponent imageName="jessica" userName="Jessica Rice" designation="UX Designer" isDefaultChecked={true} />
                 <UserListComponent imageName="jacob" userName="Jacob Rios" designation="HTML Developer" isDefaultChecked={false} />  

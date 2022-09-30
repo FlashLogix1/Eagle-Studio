@@ -63,6 +63,7 @@ export const UserDetails = () => {
             labelCol={{ span: 5 }}
             wrapperCol={{ span: 16 }}
             form={form}
+            style={{paddingLeft: "150px", marginTop: "30px"}}
         >
             <Form.Item label="Profile Image">
                 <Upload
@@ -76,26 +77,27 @@ export const UserDetails = () => {
                     action={`${process.env.REACT_APP_BASE_URL}/${id}/upload-profile-image`}
                     beforeUpload={beforeUpload}
                     onChange={handleChange}
+                    style={{marginLeft: "32px"}}
                 >
                     {image ? <img src={image} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
                 </Upload>
             </Form.Item>
             <Form.Item name='username' label={"User Name"}>
-                <Input disabled/>
+                <Input disabled style={{marginLeft: "49px"}} />
             </Form.Item>
             <Form.Item name='email' label={'Email'}>
-                <Input type="email" disabled />
+                <Input type="email" disabled style={{marginLeft: "93px"}} />
             </Form.Item>
             <Form.Item name='current_password' label="Current Password">
                 <Input.Password />
             </Form.Item>
             <Form.Item name='password' label="New Password">
-                <Input.Password />
+                <Input.Password style={{marginLeft: "26px"}} />
             </Form.Item>
             <Form.Item name="password_confirmation" label="Confirm Password">
                 <Input.Password />
             </Form.Item>
-            <Form.Item wrapperCol={{offset: 5}}>
+            <Form.Item wrapperCol={{offset: 16}}>
                 <Button htmlType="submit" type="primary">Update</Button>
             </Form.Item>
         </Form>

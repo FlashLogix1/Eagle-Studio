@@ -23,6 +23,7 @@ export const Login = () => {
     const loginState = useSelector(state => state.UserReducer)
     const dispatch = useDispatch()
     let history = useHistory()
+    const {Text } = Typography
 
     useEffect(() => setRandomNumber(Math.round(Math.random() * 99)), [])
 
@@ -75,11 +76,14 @@ export const Login = () => {
                 onFinish={validate}
                 labelCol={{sm: {span: 8, offset: 8}, md: {span: 12, offset: 6}, lg: {span: 8, offset: 8}, xl: {span: 8, offset: 8}}}
                 wrapperCol={{sm: {span: 8, offset: 8}, md: {span: 12, offset: 6}, lg: {span: 8, offset: 8}, xl: {span: 8, offset: 8}}}
+                style={{marginTop: "20px", marginBottom: "60px"}}
             >
-                <Form.Item name="username" label="Username">
+                <Form.Item name="username">
+                    <Text>Username</Text>
                     <Input />
                 </Form.Item>
-                <Form.Item name="password" label="Password">
+                <Form.Item name="password">
+                    <Text>Password</Text>
                     <Input.Password />
                 </Form.Item>
                 <Row justify="center">

@@ -15,11 +15,13 @@ export const SourceCode = () => {
 
     return (
         <Fragment>
-            <Row gutter={[10, 10]} >
-                <Col xs={24} sm={24} md={18} lg={20} xl={20}>
-                <div className="barCustomStyle">
+            <div className="barCustomStyle">
+                <div style={{paddingLeft: "127px"}}>
                     <AppBreadcrumb name={breadCrumbName} />
                 </div>
+                </div>
+            <Row gutter={[10, 10]} style={{padding: "0px 150px"}}>
+                <Col xs={24} sm={24} md={18} lg={20} xl={20}>
                     {/* <Typography style={{marginTop: '15px', marginBottom: '15px', fontSize: '25px'}}>{breadCrumbName}</Typography> */}
                     <div className="site-card-border-less-wrapper" style={{marginTop: "20px"}}>
                         <Card title={breadCrumbName} bordered={true}>
@@ -40,7 +42,7 @@ export const SourceCode = () => {
                     </div>
                     
                 </Col>
-                <Col xs={24} sm={24} md={6} lg={4} xl={4}>
+                <Col xs={24} sm={24} md={6} lg={4} xl={4} style={{marginTop: "20px"}}>
                     <Row gutter={[5, 5]} justify="center" align="middle" style={{marginLeft: "75.5px"}}>
                         <Card title="Contact Us" style={{ width: 400 }}>
                             <span style={{color: "#2bc246"}}>sales@findmeapp.com</span>

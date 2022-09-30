@@ -125,7 +125,7 @@ export const PlatformSearchProduct = () => {
     }
 
     return (
-        <Row gutter={[25, 20]} >
+        <Row gutter={[25, 20]} style={{paddingLeft: "145px", paddingTop: "25px", marginBottom: "60px"}}>
             <Col xs={24} sm={12} md={6} lg={6} xl={6}>
                 <AppBreadcrumb name={breadCrumbName} />
                 <Typography style={{marginTop: '15px'}}>Currently shopping by: </Typography>
@@ -166,7 +166,7 @@ export const PlatformSearchProduct = () => {
                 {list && <AppList data={list} getFilteredData={getFilteredData} type='subCategory' />}
 
             </Col>
-            <Col xs={24} sm={12} md={18} lg={18} xl={18}>
+            <Col xs={24} sm={12} md={18} lg={18} xl={18} style={{paddingLeft: "30px"}}>
                 <Row gutter={[15, 5]}>
                     <Skeleton active loading={loading} paragraph={{ rows: 15 }} avatar shape="round">
                         {products && products?.data && products?.data?.map(v => <Col key={v.id}>

@@ -29,7 +29,7 @@
 }
 
 .cardIimageTopCustomStyle {
-    /* width: 100%; */
+    width: 100%;
     border-top-left-radius: calc(0.25rem - 1px);
     border-top-right-radius: calc(0.25rem - 1px);
     margin: auto;
@@ -75,7 +75,7 @@ a:hover
 }
 
 .buttonViewCustomStyle {
-    width: 150px;
+    width: 130px;
 }
 
 .card-footer {
@@ -89,9 +89,9 @@ a:hover
     justify-content: center !important;
 }
 
-.ralewayCustomStyle
+.notoSansCustomStyle
 {
-    font-family: Raleway;
+    font-family: 'Noto Sans';
 }
 
 .userDescriptionCustomStyle > ul
@@ -124,7 +124,7 @@ a:hover
     color: #343a40;
     font-weight: bold;
     font-size: 36px;
-    margin-left: 12px;
+    margin-left: 4px;
     margin-top: -10px;
 }
 
@@ -290,7 +290,7 @@ tr:nth-child(odd) {
     text-decoration: none;
     text-transform: uppercase;
     text-align: center;
-    font-family: Raleway;
+    font-family: 'Noto Sans';
 
 }
 
@@ -360,7 +360,7 @@ tr:nth-child(odd) {
 .questionMarkIconCustomStyle
 {
     font-size: 25px;
-    margin-left: 20px;
+    margin-left: 16px;
     margin-right: 8px;
     margin-top: 7px;
 }
@@ -417,7 +417,7 @@ tr:nth-child(odd) {
     margin-bottom: 1rem !important;
     background-color: #f8f9fa !important;
     display: block;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Noto Sans';
 }
 
 .containerCustomStyle

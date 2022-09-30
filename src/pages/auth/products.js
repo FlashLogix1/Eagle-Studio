@@ -131,7 +131,9 @@ export const Products = () => {
 
     return (<>
         <div className="barCustomStyle" style={{marginBottom: "25px"}}>
-            <AppBreadcrumb name={breadCrumbName} />
+            <div style={{paddingLeft: "127px"}}>
+                <AppBreadcrumb name={breadCrumbName} />
+            </div>
         </div>
         {/* <Typography>Products</Typography> */}
         

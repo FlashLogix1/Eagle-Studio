@@ -17,7 +17,10 @@ const DashboardComponent = () => {
   return (
     <div>
         <div className="barCustomStyle" style={{marginBottom: "25px"}}>
-            <AppBreadcrumb name={breadCrumbName} />
+            <div style={{paddingLeft: "127px"}}>
+                <AppBreadcrumb name={breadCrumbName} />
+            </div>
+            
         </div>
         <Card style={{width: "880px", margin: "auto"}}>
             {/* <div style={{marginTop: "30px", marginBottom: "30px", textAlign: "center"}}>

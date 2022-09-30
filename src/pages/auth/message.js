@@ -74,10 +74,12 @@ export const Message = () => {
     return(
     <Fragment>
         <div className="barCustomStyle" style={{marginBottom: "25px"}}>
-            <AppBreadcrumb name={breadCrumbName} />
+            <div style={{paddingLeft: "127px"}}>
+                <AppBreadcrumb name={breadCrumbName} />
+            </div>
         </div>
         <div className="site-card-border-less-wrapper">
-            <Card title="Messages" style={{width: "750px", margin: "auto"}}>
+            <Card title="Messages" style={{width: "800px", margin: "auto"}}>
                 <Table columns={columns} dataSource={messages} loading={loading} scroll={{x: 700}} size="middle" />
             </Card>
         </div>

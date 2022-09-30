@@ -52,7 +52,9 @@ export const AddProduct = () => {
 
     return(<>
         <div className="barCustomStyle" style={{marginBottom: "25px"}}>
-            <AppBreadcrumb name={breadCrumbName} />
+            <div style={{paddingLeft: "127px"}}>
+                <AppBreadcrumb name={breadCrumbName} />
+            </div>
         </div>
         {/* <Typography>Create new product</Typography> */}
         <div className="site-card-border-less-wrapper" style={{width: "900px", margin: "auto"}}>

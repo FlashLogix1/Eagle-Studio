@@ -57,6 +57,7 @@ import BuyerFaqsComponent from './pages/BuyerFaqs';
 import EarningComponent from './pages/Earning';
 import SellerFaqsComponent from './pages/SellerFaqs';
 import ContactComponent from './pages/Contact';
+import { ProductDetailMessageComponent } from './pages/ProductDetailMessage';
 // import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -81,11 +82,15 @@ function App() {
         <Spin spinning={loading} size="large" indicator={<SyncOutlined spin />}>
             <APIContext.Provider value={[loginResponse, setLoginResposne, cartState, setCartState]}>
                 <AppHeader setLoading={setLoading} />
-                <Layout.Content style={{ padding: '2% 10%' }}>
+                {/* style={{ padding: '2% 10%' }} */}
+                <Layout.Content>
                     <Switch>
                     {/* <Route path={"/edit-product/step3/:id"}>
                             <EditProductStep3 />
                         </Route> */}
+                        <Route path="/product-detail-message" exact>
+                            <ProductDetailMessageComponent />
+                        </Route>
                         <Route path="/contact" exact>
                             <ContactComponent />
                         </Route>

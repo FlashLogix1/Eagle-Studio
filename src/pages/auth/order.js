@@ -122,7 +122,7 @@ export const Order = () => {
         </div>
         {/* <Typography>Order</Typography> */}
 
-        <div className="site-card-border-less-wrapper" style={{width: "800px", margin: "auto"}}>
+        <div className="site-card-border-less-wrapper" style={{width: "800px", margin: "auto", marginBottom: "60px"}}>
             <Card title={breadCrumbName} bordered={true}>
                 <Skeleton active loading={loading}>
                     <Table columns={columns} dataSource={orders} scroll={{x: 600}}/>

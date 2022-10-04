@@ -955,7 +955,7 @@ width: 75%;
 .contact2CustomStyle
 {
     line-height: 200px;
-    margin-left: 60px;
+    margin-left: 150px;
 }
 
 
@@ -980,6 +980,31 @@ width: 75%;
     max-width: 512px;
     margin: auto;
 }
+
+.contact6CustomStyle
+{
+    background-color: #FAFAFA;
+    min-height: 400px;
+    padding: 100px 150px;
+}
+
+.contact7CustomStyle
+{
+    color: black;
+}
+
+.contact8CustomStyle
+{
+    background-color: white;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* .......................................................................... */
 
 /* .ant-input
 {
@@ -1012,3 +1037,78 @@ width: 75%;
 {
     padding-left: 200px;
 } */
+
+.footerCustomStyle1
+{
+    list-style: none;
+    font-size: 14px;
+}
+
+
+.footerCustomStyle2
+{
+    list-style: none;
+    display: flex;
+    margin-top: 40px;
+}
+
+.footerCustomStyle2 li
+{
+    margin-right: 10px;
+}
+
+.widgetTitleCustomStyle
+{
+    text-transform: uppercase;
+    border-bottom: 1px solid;
+    color: #fd8a26;
+    float: left;
+    padding: 5px 0;
+    font-weight: bold;
+    font-size: 17px;
+    /* margin: 3px 19px 6px; */
+}
+
+.footerCustomStyle3
+{
+    color: #9a9a9a;
+    font-size: 14px;
+}
+
+.footerCustomStyle3:hover
+{
+    color: #9a9a9a;
+}
+
+.footerCustomStyle4::before {
+    content: "\2022";
+    color: #fd8a26;
+    font-weight: bold;
+    letter-spacing: 10px;
+}
+
+.footerCustomStyle5
+{
+    background-color: #E06F0E;
+    padding: 5px;
+    border-radius: 50px;
+    color: white;
+    border-color: #E06F0E;
+    margin-top: 10px;
+    width: 100px;
+}
+
+input
+{
+    border: none;
+    width: 160px;
+}
+
+input:focus
+{
+    outline: none;
+}
+
+
+
+

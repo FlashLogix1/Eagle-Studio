@@ -110,9 +110,9 @@ export const WishList = () => {
                 </div>
             </div>
             <span style={{float: "right"}}>
-                <Link to={"/"} style={{marginRight: "110px"}}>Continue shopping</Link>
+                <Link to={"/"} style={{marginRight: "110px", pointerEvents: "none"}}>Continue shopping</Link>
             </span>
-            <div className="site-card-border-less-wrapper" style={{width: "800px", margin: "auto"}}>
+            <div className="site-card-border-less-wrapper" style={{width: "800px", margin: "auto", marginBottom: "60px"}}>
                 <Card title={breadCrumbName} bordered={true}>
                     <Skeleton active loading={loading}>
                         <Table columns={columns} dataSource={wishList} />

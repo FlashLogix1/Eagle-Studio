@@ -22,7 +22,7 @@ const DashboardComponent = () => {
             </div>
             
         </div>
-        <Card style={{width: "880px", margin: "auto"}}>
+        <Card style={{width: "880px", margin: "auto", marginBottom: "60px"}}>
             {/* <div style={{marginTop: "30px", marginBottom: "30px", textAlign: "center"}}>
                 <div ><FieldTimeOutlined /> $0 Balance</div>
                 <div  style={{marginLeft: "25px"}}><AiOutlineFileSearch /> <span>175 Viewer</span></div>

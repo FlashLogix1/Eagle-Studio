@@ -57,7 +57,7 @@ export const AddProduct = () => {
             </div>
         </div>
         {/* <Typography>Create new product</Typography> */}
-        <div className="site-card-border-less-wrapper" style={{width: "900px", margin: "auto"}}>
+        <div className="site-card-border-less-wrapper" style={{width: "900px", margin: "auto", marginBottom: "60px"}}>
                 <Card title="Create new product" bordered={true}>
                         <Steps current={current}>
                 {steps.map(item => (

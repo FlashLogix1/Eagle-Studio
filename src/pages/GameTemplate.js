@@ -163,7 +163,7 @@ export const GameTemplate = () => {
                 {list && <AppList data={list} getFilteredData={getFilteredData} type='subCategory' />}
 
             </Col>
-            <Col xs={24} sm={12} md={18} lg={18} xl={18} style={{paddingLeft: "30px"}}>
+            <Col xs={24} sm={12} md={18} lg={18} xl={18} style={{paddingLeft: "30px", paddingRight: "40px"}}>
                 <Row gutter={[15, 5]}>
                     <Skeleton active loading={loading} paragraph={{ rows: 15 }} avatar shape="round">
                         {products && products?.data && products?.data?.map(v => <Col key={v.id}>

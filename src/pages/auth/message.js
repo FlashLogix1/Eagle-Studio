@@ -79,7 +79,7 @@ export const Message = () => {
             </div>
         </div>
         <div className="site-card-border-less-wrapper">
-            <Card title="Messages" style={{width: "800px", margin: "auto"}}>
+            <Card title="Messages" style={{width: "800px", margin: "auto", marginBottom: "60px"}}>
                 <Table columns={columns} dataSource={messages} loading={loading} scroll={{x: 700}} size="middle" />
             </Card>
         </div>

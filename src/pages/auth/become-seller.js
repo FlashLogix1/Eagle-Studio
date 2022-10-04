@@ -72,7 +72,7 @@ export const BecomeSeller = () => {
                 <AppBreadcrumb name="BECOME SELLER" />
             </div>
         </div>
-        <div className="site-card-border-less-wrapper" style={{width: "800px", margin: "auto"}}>
+        <div className="site-card-border-less-wrapper" style={{width: "800px", margin: "auto", marginBottom: "60px"}}>
                 <Card title="Developer Details" bordered={true}>
                     <Skeleton loading={loading} active>
                         <Form form={form} name="control-hooks" onFinish={onFinish} title={"Developer Details"}  labelCol={{ span: 12}}

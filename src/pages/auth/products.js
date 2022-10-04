@@ -137,7 +137,7 @@ export const Products = () => {
         </div>
         {/* <Typography>Products</Typography> */}
         
-        <div className="site-card-border-less-wrapper" style={{width: "900px", margin: "auto"}}>
+        <div className="site-card-border-less-wrapper" style={{width: "900px", margin: "auto", marginBottom: "60px"}}>
                 <Card title={breadCrumbName} bordered={true}>
                     <Tabs defaultActiveKey="1" onChange={callback}>
                         {

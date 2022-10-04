@@ -59,6 +59,18 @@ import SellerFaqsComponent from './pages/SellerFaqs';
 import ContactComponent from './pages/Contact';
 import { ProductDetailMessageComponent } from './pages/ProductDetailMessage';
 // import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import UseStateComponent from './pages/UseStateExample.js';
+import UseStateComponent2 from './pages/UseStateExample2.js';
+import UseStateComponent3 from './pages/UseStateExample3.js';
+import UseEffectComponent1 from './pages/UseEffectExample1.js';
+import UseEffectComponent2 from './pages/UseEffectExample2.js';
+import UseEffectComponent3 from './pages/UseEffectExample3.js';
+import UseEffectComponent4 from './pages/UseEffectExample4.js';
+import PropDrillingComponent from './pages/PropDrillingExample.js';
+import ContextApiComponent from './pages/ContextApi.js';
+import UseRefComponent1 from './pages/UseRefExample1.js';
+import UseRefComponent2 from './pages/UseRefExample2.js';
+import UseRefComponent3 from './pages/UseRefExample3.js';
 
 function App() {
 
@@ -85,9 +97,42 @@ function App() {
                 {/* style={{ padding: '2% 10%' }} */}
                 <Layout.Content>
                     <Switch>
-                    {/* <Route path={"/edit-product/step3/:id"}>
-                            <EditProductStep3 />
-                        </Route> */}
+                        <Route path="/use-ref-1" exact>
+                            <UseRefComponent1 />
+                        </Route>
+                        <Route path="/use-ref-2" exact>
+                            <UseRefComponent2 />
+                        </Route>
+                        <Route path="/use-ref-3" exact>
+                            <UseRefComponent3 />
+                        </Route>
+                        <Route path="/context-api" exact>
+                            <ContextApiComponent />
+                        </Route>
+                        <Route path="/prop-drilling" exact>
+                            <PropDrillingComponent />
+                        </Route>
+                        <Route path="/use-effect-1" exact>
+                            <UseEffectComponent1 />
+                        </Route>
+                        <Route path="/use-effect-2" exact>
+                            <UseEffectComponent2 />
+                        </Route>
+                        <Route path="/use-effect-3" exact>
+                            <UseEffectComponent3 />
+                        </Route>
+                        <Route path="/use-effect-4" exact>
+                            <UseEffectComponent4 />
+                        </Route>
+                        <Route path="/use-state-1" exact>
+                            <UseStateComponent />
+                        </Route>
+                        <Route path="/use-state-2" exact>
+                            <UseStateComponent2 />
+                        </Route>
+                        <Route path="/use-state-3" exact>
+                            <UseStateComponent3 />
+                        </Route>
                         <Route path="/product-detail-message" exact>
                             <ProductDetailMessageComponent />
                         </Route>

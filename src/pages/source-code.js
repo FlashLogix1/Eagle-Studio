@@ -20,7 +20,7 @@ export const SourceCode = () => {
                     <AppBreadcrumb name={breadCrumbName} />
                 </div>
                 </div>
-            <Row gutter={[10, 10]} style={{padding: "0px 150px"}}>
+            <Row gutter={[10, 10]} style={{padding: "0px 150px", marginBottom: "60px"}}>
                 <Col xs={24} sm={24} md={18} lg={20} xl={20}>
                     {/* <Typography style={{marginTop: '15px', marginBottom: '15px', fontSize: '25px'}}>{breadCrumbName}</Typography> */}
                     <div className="site-card-border-less-wrapper" style={{marginTop: "20px"}}>

@@ -195,7 +195,7 @@ export const Parchase = () => {
                 <AppBreadcrumb name={breadCrumbName} />
             </div>
         </div>
-        <div className="site-card-border-less-wrapper" style={{width: "800px", margin: "auto"}}>
+        <div className="site-card-border-less-wrapper" style={{width: "800px", margin: "auto", marginBottom: "60px"}}>
                 <Card title={breadCrumbName} bordered={true}>
                     <Skeleton active loading={loading}>
                         <Table columns={columns} dataSource={purchase} scroll={{ x: 1100 }}/>
